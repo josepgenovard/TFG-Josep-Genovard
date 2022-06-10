@@ -8,8 +8,8 @@ const compiledContract = require(compiledContractPath);
 
 // Mnemonic from a test account and an Infura provider
 const provider = new HDWalletProvider(
-  'tragic square news business dad cricket nurse athlete tide split about ring',
-  'https://rinkeby.infura.io/v3/b2daf36eb4d74aed8ffac330c09dd2ee'
+  'your key',
+  'https://rinkeby.infura.io/v3/51d02ccb2c3b4b9889cf2fda8b045060'
 );
 const web3 = new Web3(provider);
 
