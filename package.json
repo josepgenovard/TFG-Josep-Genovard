@@ -1,11 +1,76 @@
 {
-  "name": "web",
+  "name": "EthereumReactJSTemplate",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Plantilla per compilar i desplegar un Smart Contract desenvolupat amb Solidity a Ethereum, i accedir-hi mitjançant una aplicació desenvolupada amb una aplicació web amb interfície web ReactJS. Es pot executar a NodeJS o Docker. A més, conté la configuració de Hardhat i el hardhat-gas-reporter plug-in, amb la qual amb Unit tests es poden obtenir els costs amb gas de les transaccions.",
+  "homepage": "https://secomuib.github.io/EthereumReactJSTemplate/",
+  "main": "start.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
   },
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "ethereum_compile": "node compile.js",
+    "ethereum_deploy": "node deploy.js",
+    "ethereum_test": "mocha",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secomuib/EthereumReactJSTemplate.git"
+  },
+  "keywords": [
+    "ethereum",
+    "solidity",
+    "blockchain",
+    "nodejs",
+    "docker"
+  ],
+  "author": "Seguretat i comerç electrònic (SECOM)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/secomuib/EthereumReactJSTemplate/issues"
+  },
+  "private": true,
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@truffle/hdwallet-provider": "^1.2.1",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.4",
+    "fs-extra": "^9.1.0",
+    "ganache-cli": "^6.12.2",
+    "gh-pages": "^2.2.0",
+    "hardhat": "^2.8.4",
+    "hardhat-deploy": "^0.10.5",
+    "hardhat-deploy-ethers": "^0.3.0-beta.13",
+    "hardhat-gas-reporter": "^1.0.7",
+    "mocha": "^8.2.1",
+    "pify": "^5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "solc": "^0.7.4",
+    "web3": "^1.3.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
