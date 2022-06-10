@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/EthereumReactJSTemplate/static/js/main.f3221201.chunk.js",
+    "main.js.map": "/EthereumReactJSTemplate/static/js/main.f3221201.chunk.js.map",
+    "runtime-main.js": "/EthereumReactJSTemplate/static/js/runtime-main.9f6dbd84.js",
+    "runtime-main.js.map": "/EthereumReactJSTemplate/static/js/runtime-main.9f6dbd84.js.map",
+    "static/css/2.ace9d170.chunk.css": "/EthereumReactJSTemplate/static/css/2.ace9d170.chunk.css",
+    "static/js/2.16943587.chunk.js": "/EthereumReactJSTemplate/static/js/2.16943587.chunk.js",
+    "static/js/2.16943587.chunk.js.map": "/EthereumReactJSTemplate/static/js/2.16943587.chunk.js.map",
+    "index.html": "/EthereumReactJSTemplate/index.html",
+    "precache-manifest.6bb092fa3d8574718532bee426578c2a.js": "/EthereumReactJSTemplate/precache-manifest.6bb092fa3d8574718532bee426578c2a.js",
+    "service-worker.js": "/EthereumReactJSTemplate/service-worker.js",
+    "static/css/2.ace9d170.chunk.css.map": "/EthereumReactJSTemplate/static/css/2.ace9d170.chunk.css.map",
+    "static/js/2.16943587.chunk.js.LICENSE.txt": "/EthereumReactJSTemplate/static/js/2.16943587.chunk.js.LICENSE.txt",
+    "static/js/main.f3221201.chunk.js.LICENSE.txt": "/EthereumReactJSTemplate/static/js/main.f3221201.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/EthereumReactJSTemplate/static/media/outline-icons.ef60a4f6.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9f6dbd84.js",
+    "static/css/2.ace9d170.chunk.css",
+    "static/js/2.16943587.chunk.js",
+    "static/js/main.f3221201.chunk.js"
+  ]
+}
