@@ -11,7 +11,11 @@ class Home extends Component {
         errorMessage: ''
     };
 
-    componentDidMount = async () => {
+    onSubmit = async event => {
+        event.preventDefault();
+
+        this.setState({ loading: true, errorMessage: '' });
+    
         try {
             const accounts = await web3.eth.getAccounts();
             const compteMinisteri = 0x5735cff62509A9bab97DF7c4c51D495564170639;
@@ -22,23 +26,23 @@ class Home extends Component {
 
             if(accounts[0] == compteMinisteri) {                // MINISTERI
                 console.log("S'ha connectat el Ministeri.");
-                location.replace("/Ministeri/index.js")
+                location.replace("/Ministeri/IndexMinisteri.js")
 
             } else if(accounts[0] == compteHospital) {          // HOSPITAL
                 console.log("S'ha connectat l'Hospital.");
-                location.replace("/Hospital/index.js")
+                location.replace("/Hospital/IndexHospital.js")
 
             } else if(accounts[0] == compteMetge) {             // METGE
                 console.log("S'ha connectat el Metge.");
-                location.replace("/Metge/index.js")
+                location.replace("/Metge/IndexMetge.js")
 
             } else if(accounts[0] == compteUsuari) {            // USUARI
                 console.log("S'ha connectat l'Usuari.");
-                location.replace("/Usuari/index.js")
+                location.replace("/Usuari/IndexUsuari.js")
 
             } else if(accounts[0] == compteFarmacia) {          // FARMÀCIA
                 console.log("S'ha connectat la Farmàcia.");
-                location.replace("/Farmacia/index.js")
+                location.replace("/Farmacia/IndexFarmacia.js")
 
             } else {                                            // UNA ALTRE ADDREÇA
                 console.log("El compte connectat no és de cap actor.");

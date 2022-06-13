@@ -4,11 +4,14 @@ import { Form, Button, Message, Input } from 'semantic-ui-react';
 import factory from '../ethereum/factory';
 import web3 from '../ethereum/web3';
 
-class AltaMetges extends Component {
+class IndexMetge extends Component {
   state = {
     address: '',
     nom: '',
-    numcolegiat: '',
+    ium: '',
+    any: '',
+    mes: '',
+    dia: '',
     loading: false,
     errorMessage: ''
   };
@@ -21,10 +24,10 @@ class AltaMetges extends Component {
     try {
         const accounts = await web3.eth.getAccounts();
         await factory.methods
-            .creaMetge(this.state.address, this.state.nom, this.state.numcolegiat)
+            .creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia)
             .send({ from: accounts[0] });           
 
-        alert('Metge creat!');
+        alert('Recepta creada!');
         // Refresh, using withRouter
         this.props.history.push('/');
     } catch (err) {
@@ -38,11 +41,10 @@ class AltaMetges extends Component {
   render() {
     return (
         <div>
-        <Link to='/'>Torna enrera</Link>
-        <h3>Crea un nou metge</h3>
+        <h3>Crea una recepta</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
-            <label>Adreça</label>
+            <label>Adreça de l'usuari</label>
             <Input
               value={this.state.address}
               onChange={event => this.setState({ address: event.target.value })}
@@ -50,7 +52,7 @@ class AltaMetges extends Component {
           </Form.Field>
 
           <Form.Field>
-            <label>Nom</label>
+            <label>Nom del medicament</label>
             <Input
               value={this.state.nom}
               onChange={event => this.setState({ nom: event.target.value })}
@@ -58,10 +60,35 @@ class AltaMetges extends Component {
           </Form.Field>
 
           <Form.Field>
-            <label>Numero de Col·legiat</label>
+            <label>Identificador Únic del Medicament (IUM)</label>
             <Input
-              value={this.state.numcolegiat}
-              onChange={event => this.setState({ numcolegiat: event.target.value })}
+              value={this.state.ium}
+              onChange={event => this.setState({ ium: event.target.value })}
+            />
+          </Form.Field>
+
+          Indica la data de caducitat
+          <Form.Field>
+            <label>Dia</label>
+            <Input
+              value={this.state.dia}
+              onChange={event => this.setState({ dia: event.target.value })}
+            />
+          </Form.Field>
+
+          <Form.Field>
+            <label>Mes</label>
+            <Input
+              value={this.state.mes}
+              onChange={event => this.setState({ mes: event.target.value })}
+            />
+          </Form.Field>
+
+          <Form.Field>
+            <label>Any</label>
+            <Input
+              value={this.state.any}
+              onChange={event => this.setState({ any: event.target.value })}
             />
           </Form.Field>
 
@@ -75,4 +102,4 @@ class AltaMetges extends Component {
   }
 }
 
-export default withRouter(AltaMetges);
+export default withRouter(IndexMetge);

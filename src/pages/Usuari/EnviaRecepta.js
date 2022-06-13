@@ -4,11 +4,10 @@ import { Form, Button, Message, Input } from 'semantic-ui-react';
 import factory from '../ethereum/factory';
 import web3 from '../ethereum/web3';
 
-class AltaMetges extends Component {
+class EnviaRecepta extends Component {
   state = {
     address: '',
-    nom: '',
-    numcolegiat: '',
+    id: '',
     loading: false,
     errorMessage: ''
   };
@@ -20,11 +19,14 @@ class AltaMetges extends Component {
 
     try {
         const accounts = await web3.eth.getAccounts();
+        
+        // FER EL SEGÜENT APPROVE AL TOKEN: approve([SmartContractUsuaris], this.state.id)
+        
         await factory.methods
-            .creaMetge(this.state.address, this.state.nom, this.state.numcolegiat)
-            .send({ from: accounts[0] });           
+            .enviaReceptaAFarmacia(this.state.id, this.state.address)
+            .send({ from: accounts[0] });          
 
-        alert('Metge creat!');
+        alert('Recepta enviada!');
         // Refresh, using withRouter
         this.props.history.push('/');
     } catch (err) {
@@ -39,35 +41,28 @@ class AltaMetges extends Component {
     return (
         <div>
         <Link to='/'>Torna enrera</Link>
-        <h3>Crea un nou metge</h3>
+        <h3>Envia recepta a una farmàcia</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+          
           <Form.Field>
-            <label>Adreça</label>
+            <label>Id de la recepta</label>
+            <Input
+              value={this.state.id}
+              onChange={event => this.setState({ id: event.target.value })}
+            />
+          </Form.Field>
+          
+          <Form.Field>
+            <label>Adreça de la farmàcia</label>
             <Input
               value={this.state.address}
               onChange={event => this.setState({ address: event.target.value })}
             />
           </Form.Field>
 
-          <Form.Field>
-            <label>Nom</label>
-            <Input
-              value={this.state.nom}
-              onChange={event => this.setState({ nom: event.target.value })}
-            />
-          </Form.Field>
-
-          <Form.Field>
-            <label>Numero de Col·legiat</label>
-            <Input
-              value={this.state.numcolegiat}
-              onChange={event => this.setState({ numcolegiat: event.target.value })}
-            />
-          </Form.Field>
-
           <Message error header="ERROR" content={this.state.errorMessage} />
           <Button primary loading={this.state.loading}>
-            Crea
+            Envia
           </Button>
         </Form>
       </div>
@@ -75,4 +70,4 @@ class AltaMetges extends Component {
   }
 }
 
-export default withRouter(AltaMetges);
+export default withRouter(EnviaRecepta);

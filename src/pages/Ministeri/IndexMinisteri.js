@@ -26,7 +26,7 @@ class IndexMinisteri extends Component {
         <Link to="/alta/hospitals">
             <Button
                 content = "Crea un nou hospital"
-                icon = "add circle"
+                icon = "add user"
                 primary = {true}
             />
         </Link>
@@ -34,7 +34,7 @@ class IndexMinisteri extends Component {
         <Link to="/baixa/hospitals">
             <Button
                 content = "Dona de baixa un hospital"
-                icon = "remove circle"
+                icon = "remove user"
                 primary = {true}
             />
         </Link>
@@ -44,7 +44,7 @@ class IndexMinisteri extends Component {
         <Link to="/alta/usuaris">
             <Button
                 content = "Crea un nou usuari"
-                icon = "add circle"
+                icon = "add user"
                 primary = {true}
             />
         </Link>
@@ -52,7 +52,7 @@ class IndexMinisteri extends Component {
         <Link to="/baixa/usuaris">
             <Button
                 content = "Dona de baixa un usuari"
-                icon = "remove circle"
+                icon = "remove user"
                 primary = {true}
             />
         </Link>
@@ -63,7 +63,7 @@ class IndexMinisteri extends Component {
         <Link to="/alta/farmacies">
             <Button
                 content = "Crea una nova farmàcia"
-                icon = "add circle"
+                icon = "add user"
                 primary = {true}
             />
         </Link>
@@ -71,7 +71,7 @@ class IndexMinisteri extends Component {
         <Link to="/baixa/farmacies">
             <Button
                 content = "Dona de baixa una farmàcia"
-                icon = "remove circle"
+                icon = "remove user"
                 primary = {true}
             />
         </Link>
