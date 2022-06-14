@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs-extra'); // fs with extra functions
 const solc = require('solc');
 
-const CONTRACT_FILE_NAME = 'EDelivery.sol';
+const CONTRACT_FILE_NAME = 'Ministeri.sol';
 const buildPath = path.resolve(__dirname, 'src/ethereum/build');
 const contractPath = path.resolve(__dirname, 'contracts', CONTRACT_FILE_NAME);
 const contractSource = fs.readFileSync(contractPath, 'utf8');
@@ -10,7 +10,7 @@ const contractSource = fs.readFileSync(contractPath, 'utf8');
 let input = {
   language: 'Solidity',
   sources: {
-    'EDelivery.sol' : {
+    'Ministeri.sol' : {
           content: contractSource
       }
   },
