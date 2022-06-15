@@ -8,7 +8,7 @@ const compiledContract = require(compiledContractPath);
 
 // Mnemonic from a test account and an Infura provider
 const provider = new HDWalletProvider(
-  'your key',
+  'bracket heavy result first aware spice logic frog female tunnel such movie',
   'https://rinkeby.infura.io/v3/51d02ccb2c3b4b9889cf2fda8b045060'
 );
 const web3 = new Web3(provider);
