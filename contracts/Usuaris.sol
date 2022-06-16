@@ -25,7 +25,7 @@ contract Usuaris {
     {
         require(
             mi.estatUsuari(_account),             
-            "Nomes els usuaris validats poden executa la funcio."
+            "Nomes usuaris"
         );
         _;
     }

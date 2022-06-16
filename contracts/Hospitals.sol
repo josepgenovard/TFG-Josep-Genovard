@@ -21,7 +21,6 @@ contract Hospitals {
         mi = Ministeri(_contracteMinisteri);
         aMinisteri = _contracteMinisteri;
 
-        
     }
 
     // Estructura dels Metges
@@ -54,80 +53,36 @@ contract Hospitals {
 
     // --------------------------------------------------------- MODIFIERS ---------------------------------------------------------
 
-    // Només l'hospital que ha creat el metge, podrà modificar-lo
-           modifier onlyByHospitalPropietari(address _metge, address _hospital)
-    {
-        require(
-            mi.estatHopital(_hospital),             
-            "Nomes els hospitals validats poden executar la funcio."
-        );
-        require(
-            _hospital == MetgesMap[_metge].aHospital,             
-            "Nomes l'hospital que ha creat el metge el pot modificar."
-        );
-        _;
-    }
-
     // Només les adreces validades com a hospitals a l'SC del Ministeri podran execuar la funció
            modifier onlyByHospitals(address _account)
     {
         require(
             mi.estatHopital(_account),             
-            "Nomes els hospitals validats poden executa la funcio."
+            "Nomes hospitals"
         );
         _;
     }
 
-    // Només les adreces dels SC dels Tokens hi podran accedir.
-           modifier onlyByContractesTokens(address _account)
-    {
-        require(
-            (_account == aRecepta),             
-            "Nomes els contractes de tokens poden executa la funcio."
-        );
-        _;
-    }
-
-    // Només les adreces dels SC dels Tokens, Ministeri i Metges hi podran accedir.
-           modifier onlyByContractesTokensMinisteriMetges(address _account)
+    // Només les adreces dels SC de Receptes, Ministeri i Metges hi podran accedir.
+           modifier onlyByContractes(address _account)
     {
         require(
             (_account == aRecepta) ||(_account == aMinisteri) ||(aMetges == _account),             
-            "Nomes els contractes Recepta, Volant, Ministeri o Metges poden executa la funcio."
+            "SC sender no valid"
         );
         _;
     }
-
-    // Només l'adreça del contracte del ministeri podrà accedir
-           modifier onlyByContracteMinisteri(address _account)
-    {
-        require(
-           _account == aMinisteri,             
-            "Nomes el contracte del Ministeri pot executa la funcio."
-        );
-        _;
-    }
-
-    
-    // --------------------------------------------------------- EVENTS ---------------------------------------------------------
-    
-    
-    event eventAltaMetge(address addressMetge, string nomMetge);
-
-    event eventBaixaMetge(address addressMetge, string nomMetge);
-   
-    
 
     // --------------------------------------------------------- FUNCTIONS ---------------------------------------------------------
 
     ///// GESTIÓ METGES /////
 
     // Funció per crear un metge
-    function creaMetge(address _aMetge, string memory _nom, uint _numColegiat) public{// onlyByHospitals(msg.sender){
+    function creaMetge(address _aMetge, string memory _nom, uint _numColegiat) public onlyByHospitals(msg.sender){
 
-        require(bytes(_nom).length > 8, "S'ha d'indicar un nom complet pel metge");
+        require(bytes(_nom).length > 8, "Indicar nom");
 
-        require(numDigits(_numColegiat) == 9, "El numero de col.legiat ha de tenir 9 xifres");
+        require(numDigits(_numColegiat) == 9, "Num col.legiat es de 9 xifres");
 
         Metge memory m;
         m.estat = estatActor.alta;
@@ -140,13 +95,13 @@ contract Hospitals {
 
         PosicioArrayaMap[_aMetge] = PlantillaMap[msg.sender].plantilla.length; // Guardar posició de l'array en la que es guardarà el metge
         PlantillaMap[msg.sender].plantilla.push(_aMetge);
-
-        emit eventAltaMetge(_aMetge, _nom);
         
     }
 
     // Funció per donar de baixa a un metge
-    function baixaMetge(address _aMetge) public onlyByHospitalPropietari(_aMetge, msg.sender){
+    function baixaMetge(address _aMetge) public onlyByHospitals(msg.sender){
+
+        require(msg.sender == MetgesMap[_aMetge].aHospital, "Nomes hospital propietari");
 
         MetgesMap[_aMetge].estat = estatActor.baixa;
 
@@ -155,8 +110,6 @@ contract Hospitals {
         // S'elimina el metge de la plantilla de l'hospital
         uint posicioMetge = PosicioArrayaMap[_aMetge];
         delete PlantillaMap[msg.sender].plantilla[posicioMetge];
-        
-        emit eventBaixaMetge(_aMetge, MetgesMap[_aMetge].nom);
         
     }
 
@@ -170,7 +123,7 @@ contract Hospitals {
 
 
     // Funció per saber si un metge està dins dels sitema. Només hi han d'accedir els contractes Ministeri, Metges, Receptes i Volants.
-    function estatMetge(address _aMetge) public view onlyByContractesTokensMinisteriMetges(msg.sender) returns (bool){
+    function estatMetge(address _aMetge) public view onlyByContractes(msg.sender) returns (bool){
 
         address adHospital = MetgesMap[_aMetge].aHospital;
 
@@ -188,7 +141,7 @@ contract Hospitals {
     }
 
     // Funció per retornar el nom d'un metge amb la seva adreça
-    function nomMetge(address _idMetge) public view onlyByContractesTokens(msg.sender) returns (string memory){
+    function nomMetge(address _idMetge) public view onlyByContractes(msg.sender) returns (string memory){
 
         return MetgesMap[_idMetge].nom;
    
@@ -199,12 +152,12 @@ contract Hospitals {
     ///// REBRE ADREÇES D'ALTRES SC //////
 
     // Funció perquè el Contracte del ministeri envii l'adreça del contracte de receptes una vegada creat
-    function rebAddressContracteTokenRecepta(address _aRecepta) public onlyByContracteMinisteri(msg.sender) {
+    function rebAddressContracteTokenRecepta(address _aRecepta) public onlyByContractes(msg.sender) {
         aRecepta = _aRecepta;
     }
 
     // Funció perquè el Contracte del ministeri envii l'adreça del contracte dels metges una vegada creat
-    function rebAddressContracteMetges(address _aMetges) public onlyByContracteMinisteri(msg.sender) {
+    function rebAddressContracteMetges(address _aMetges) public onlyByContractes(msg.sender) {
         aMetges = _aMetges;
     }
 
@@ -220,13 +173,5 @@ contract Hospitals {
         }
         return digits;
     }
-
-
-
-
-    //FUNCIO PER FER PROVES ÀGILS
-    function CREAMETGE() public{
-        creaMetge(0x617F2E2fD72FD9D5503197092aC168c91465E7f2, "nom metge", 123456789);
-    }
-
+    
 }

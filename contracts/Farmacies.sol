@@ -29,7 +29,7 @@ contract Farmacies {
     {
         require(
             mi.estatFarmacia(_account),             
-            "Nomes les farmacies validades poden executa la funcio."
+            "Nomes farmacies"
         );      
         _;
     }

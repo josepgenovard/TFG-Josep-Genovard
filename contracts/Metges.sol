@@ -26,7 +26,7 @@ contract Metges {
     {
         require(
             h.estatMetge(_account),             
-            "Nomes els metges dels sistema poden executa la funcio."
+            "Nomes metges"
         );
         _;
     }
@@ -41,14 +41,6 @@ contract Metges {
         
         rcp.crearRecepta(_addressUsuari, msg.sender, _nomMedicament, _ium, _anyCaducitat, _mesCaducitat, _diaCaducitat);
         
-    }
-
-
-
-
-    // FUNCIÓ PER CREAR RECEPTA RÀPIDA
-    function CREAEXEMPLERECEPTA() public {
-        creaRecepta(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB, "nom farmac", "1234567890123", 2022, 6, 28);
     }
 
 }

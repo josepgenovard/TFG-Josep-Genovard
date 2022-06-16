@@ -82,7 +82,7 @@ contract Ministeri {
     {
         require(
             _account == Owner,             
-            "Nomes el ministeri pot executar la funcio."
+            "Nomes ministeri"
         );
         _;
     }
@@ -92,7 +92,7 @@ contract Ministeri {
     {
         require(
             (_account == aTokenRecepta) || (_account == aUsuaris) || (_account == aHospitals) || (_account == aFarmacies),             
-            "Nomes les adreces dels SC desplagats pel ministeri tenen acces a la funcio."
+            "Nomes SC desplagats"
         );
         _;
     }
@@ -141,7 +141,7 @@ contract Ministeri {
     // Funció per crear un hospital
     function creaHospital(address _aHospital, string memory _nom) public{// onlyByMinisteri(msg.sender){
 
-        require(bytes(_nom).length > 2, "S'ha d'indicar un nom per l'Hospital");
+        require(bytes(_nom).length > 2, "Indicar nom complet");
 
         Hospital memory h;
         h.estat = estatActor.alta;
@@ -153,7 +153,7 @@ contract Ministeri {
     // Funció per donar de baixa a un hospital (des de l'adreça del propi ministeri)
     function baixaHospital(address _aHospital) public onlyByMinisteri(msg.sender){
 
-        require(HospitalsMap[_aHospital].estat == estatActor.alta, "Nomes es poden donar de baixa els hospitals amb estat \"alta\"");
+        require(HospitalsMap[_aHospital].estat == estatActor.alta, "Hospital amb estat \"baixa\"");
 
         HospitalsMap[_aHospital].estat = estatActor.baixa;
 
@@ -167,7 +167,7 @@ contract Ministeri {
     // Funció per crear un usuari
     function creaUsuari(address _aUsuari, string memory _nom) public{// onlyByMinisteri(msg.sender){
 
-        require(bytes(_nom).length > 8, "S'ha d'indicar un nom sencer de l'usuari. Exemple: \"Nom Llinatge Llinatge\"");
+        require(bytes(_nom).length > 8, "Indicar nom i llinatges");
 
         Usuari memory u;
         u.estat = estatActor.alta;
@@ -179,7 +179,7 @@ contract Ministeri {
     // Funció per donar de baixa a un usuari (des de l'adreça del propi ministeri)
     function baixaUsuari(address _aUsuari) public onlyByMinisteri(msg.sender){
 
-        require(UsuarisMap[_aUsuari].estat == estatActor.alta, "Nomes es poden donar de baixa els usuaris amb estat \"alta\"");
+        require(UsuarisMap[_aUsuari].estat == estatActor.alta, "Nomes usuaris amb estat \"alta\"");
 
         UsuarisMap[_aUsuari].estat = estatActor.baixa;
         
@@ -192,7 +192,7 @@ contract Ministeri {
     // Funció per crear una farmàcia
     function creaFarmacia(address _aFarmacia, string memory _nom) public{// onlyByMinisteri(msg.sender){
 
-        require(bytes(_nom).length > 2, "S'ha d'indicar un nom per la farmacia");
+        require(bytes(_nom).length > 2, "Indicar nom complet");
 
         Farmacia memory f;
         f.estat = estatActor.alta;
@@ -204,7 +204,7 @@ contract Ministeri {
     // Funció per donar de baixa a una farmacia (des de l'adreça del propi ministeri)
     function baixaFarmacia(address _aFarmacia) public onlyByMinisteri(msg.sender){
 
-        require(FarmaciesMap[_aFarmacia].estat == estatActor.alta, "Nomes es poden donar de baixa les farmacies amb estat \"alta\"");
+        require(FarmaciesMap[_aFarmacia].estat == estatActor.alta, "Nomes farmacies amb estat \"alta\"");
 
         FarmaciesMap[_aFarmacia].estat = estatActor.baixa;
         
@@ -260,17 +260,7 @@ contract Ministeri {
         }
 
         return false;
-   
+    
     }
-
-
-
-
-    // FUNCIÓ PER AGILITZAR PROVES
-    function CREAACTORS() public {
-        creaHospital(0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2, "nom hospital");
-        creaFarmacia(0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db, "nom farmacia");
-        creaUsuari(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB, "nom usuari");
-    } 
     
 }
