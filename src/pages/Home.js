@@ -26,23 +26,23 @@ class Home extends Component {
 
             if(accounts[0] == compteMinisteri) {                // MINISTERI
                 console.log("S'ha connectat el Ministeri.");
-                location.replace("/Ministeri/IndexMinisteri.js")
+                window.location = "/Ministeri/IndexMinisteri.js";
 
             } else if(accounts[0] == compteHospital) {          // HOSPITAL
                 console.log("S'ha connectat l'Hospital.");
-                location.replace("/Hospital/IndexHospital.js")
+                window.location = "/Hospital/IndexHospital.js";
 
             } else if(accounts[0] == compteMetge) {             // METGE
                 console.log("S'ha connectat el Metge.");
-                location.replace("/Metge/IndexMetge.js")
+                window.location = "/Metge/IndexMetge.js";
 
             } else if(accounts[0] == compteUsuari) {            // USUARI
                 console.log("S'ha connectat l'Usuari.");
-                location.replace("/Usuari/IndexUsuari.js")
+                window.location = "/Usuari/IndexUsuari.js";
 
             } else if(accounts[0] == compteFarmacia) {          // FARMÀCIA
                 console.log("S'ha connectat la Farmàcia.");
-                location.replace("/Farmacia/IndexFarmacia.js")
+                window.location = "/Farmacia/IndexFarmacia.js";
 
             } else {                                            // UNA ALTRE ADDREÇA
                 console.log("El compte connectat no és de cap actor.");
