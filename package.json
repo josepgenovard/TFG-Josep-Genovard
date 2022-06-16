@@ -10,7 +10,7 @@
   },
   "scripts": {
     "ethereum_compile": "hardhat compile",
-    "ethereum_deploy": "node deploy.js",
+    "ethereum_deploy": "hardhat deploy",
     "ethereum_test": "mocha",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -50,7 +50,6 @@
     "hardhat-deploy": "^0.10.5",
     "hardhat-deploy-ethers": "^0.3.0-beta.13",
     "hardhat-gas-reporter": "^1.0.7",
-    "mocha": "^8.2.1",
     "pify": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -74,6 +73,7 @@
     ]
   },
   "devDependencies": {
-    "@openzeppelin/contracts": "^4.4.1"
+    "@openzeppelin/contracts": "^4.4.1",
+    "mocha": "^10.0.0"
   }
 }
