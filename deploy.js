@@ -1,38 +1,20 @@
-const path = require("path");
-const fs = require("fs-extra"); // fs with extra functions
-const HDWalletProvider = require("@truffle/hdwallet-provider");
-const Web3 = require('web3');
+async function main() {
+  // We get the contract to deploy
+  const Ministeri = await ethers.getContractFactory("Ministeri", {
+    libraries: {
+      DateTime: "0x92482Ba45A4D2186DafB486b322C6d0B88410FE7",
+    },
+  });
+  const ministeri = await Ministeri.deploy();
 
-const compiledContractPath = './src/ethereum/build/EDeliveryFactory.json';
-const compiledContract = require(compiledContractPath);
+  await ministeri.deployed();
 
-// Mnemonic from a test account and an Infura provider
-const provider = new HDWalletProvider(
-  'bracket heavy result first aware spice logic frog female tunnel such movie',
-  'https://rinkeby.infura.io/v3/51d02ccb2c3b4b9889cf2fda8b045060'
-);
-const web3 = new Web3(provider);
+  console.log("Ministeri deployed to:", ministeri.address);
+}
 
-const deploy = async () => {
-  const accounts = await web3.eth.getAccounts();
-
-  console.log('Attempting to deploy from account', accounts[0]);
-
-  // We deploy the EDelivery smart contract to the Rinkeby test network
-  const result = await new web3.eth.Contract(compiledContract.abi)
-    .deploy({ data: compiledContract.evm.bytecode.object, arguments: [] })
-    .send({ from: accounts[0], gas: '6000000' });
-
-  // fs.writeFileSync('./CONTRACTADDRESS', result.options.address);
-  compiledContract.address = result.options.address;
-
-  fs.outputJsonSync(
-    path.resolve(__dirname, compiledContractPath),
-    compiledContract,
-    {spaces: 2} // Indent json output with 2 spaces
-  );
-  
-  console.log('Contract deployed to Rinkeby network, at address ', result.options.address);
-};
-
-deploy();
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });

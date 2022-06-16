@@ -45,7 +45,7 @@ module.exports = {
       chainId: chainIds.ropsten,
     },
     rinkeby: {
-      url: getInfuraURL('rinkeby'),
+      url: "https://rinkeby.infura.io/v3/51d02ccb2c3b4b9889cf2fda8b045060",
       accounts: {
         mnemonic: MNEMONIC,
       },
@@ -68,7 +68,7 @@ module.exports = {
     compilers: [
       {
         version: '0.8.7',
-        settings: { optimizer: { enabled: true, runs: 200 } },
+        settings: { optimizer: { enabled: true, runs: 1 } },
       },
     ],
   },

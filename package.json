@@ -10,7 +10,7 @@
   },
   "scripts": {
     "ethereum_compile": "hardhat compile",
-    "ethereum_deploy": "hardhat deploy",
+    "ethereum_deploy": "hardhat run --network rinkeby deploy.js",
     "ethereum_test": "mocha",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
