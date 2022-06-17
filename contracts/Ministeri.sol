@@ -1,6 +1,6 @@
 pragma solidity >=0.5.0 <0.9.0;
 
-import './DateTime.sol';
+//import "./DateTime.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import './Hospitals.sol';
 import './TokenRecepta.sol';
@@ -23,7 +23,7 @@ contract Ministeri {
     address private Owner;
 
     // Adreces dels diferents contractes
-    address private aDateTime;
+    //address private aDateTime;
     address private aTokenRecepta;
     address private aHospitals;
     address private aFarmacies;
@@ -35,10 +35,12 @@ contract Ministeri {
 
 
     // Constructor del contracte
-    constructor (/*address _aDateTime*/) public {
+    constructor (address _aTokenRecepta) public {
         ContracteEntitat = address(uint160(address(this)));
         Owner = msg.sender;
-        aDateTime = 0x92482Ba45A4D2186DafB486b322C6d0B88410FE7;
+        //aDateTime = 0x92482Ba45A4D2186DafB486b322C6d0B88410FE7;
+        aTokenRecepta = _aTokenRecepta;
+        tr = Recepta(aTokenRecepta);
     }
 
     // Estructura dels Hospital
@@ -109,9 +111,10 @@ contract Ministeri {
         hos = Hospitals(aHospitals);
 
         // TokenRecepta
-        aTokenRecepta = address(new Recepta(Owner, ContracteEntitat, aHospitals));
-        tr = Recepta(aTokenRecepta);
+        ///////aTokenRecepta = address(new Recepta(Owner, ContracteEntitat, aHospitals));
+        ///////tr = Recepta(aTokenRecepta);
         //Informar al contracte Hospitals de l'adreça que té
+        tr.rebAddressContractesMinisteriHospital(ContracteEntitat, aHospitals);
         hos.rebAddressContracteTokenRecepta(aTokenRecepta);
 
         // Metges

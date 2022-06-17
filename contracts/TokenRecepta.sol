@@ -22,6 +22,8 @@ contract Recepta is Ownable, ERC721 {
     address private aUsuaris;
     address private addressMinisteri;
 
+    address private aDateTime = 0x92482Ba45A4D2186DafB486b322C6d0B88410FE7;
+
     Ministeri private mi;
     Hospitals private hos;
 
@@ -40,11 +42,8 @@ contract Recepta is Ownable, ERC721 {
         uint[] ids;
     }
 
-    constructor(address _addressMinisteri, address _contracteMinisteri, address _aHospitals) ERC721("Recepta", "RCPT") {
-        mi = Ministeri(_contracteMinisteri);
-        hos = Hospitals(_aHospitals);
-        aContracteMinisteri = _contracteMinisteri;
-        addressMinisteri = _addressMinisteri;
+    constructor() ERC721("Recepta", "RCPT") {
+        
     }
 
 
@@ -270,6 +269,14 @@ contract Recepta is Ownable, ERC721 {
     // Funció perquè el Contracte del ministeri envii l'adreça del contracte dels usuaris una vegada creat
     function rebAddressContracteUsuaris(address _aUsuaris) public onlyByContractes(msg.sender) {
         aUsuaris = _aUsuaris;
+    }
+
+    // Funció perquè el Contracte del ministeri envii la seva adreça i la dels hospitals
+    function rebAddressContractesMinisteriHospital(address _contracteMinisteri, address _aHospitals) public {
+        mi = Ministeri(_contracteMinisteri);
+        hos = Hospitals(_aHospitals);
+        aContracteMinisteri = _contracteMinisteri;
+        addressMinisteri = msg.sender;
     }
 
 }
