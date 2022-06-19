@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Icon, Form, Button, Message, Input } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
+import factoryFarmacia from '../ethereum/factory/farmacia';
 import web3 from '../ethereum/web3';
 
 class IndexFarmacia extends Component {
@@ -31,12 +31,13 @@ class IndexFarmacia extends Component {
             />
         </Link>
 
-        <Button
-            content = "Envia totes les receptes al Ministeri"
-            icon = "send"
-            primary = {true}
-            onclick="enviaReceptes()"
-          />
+        <a onClick={enviaReceptes}>
+            <Button
+                content = "Envia totes les receptes al Ministeri"
+                icon = "send"
+                primary = {true}
+            />
+        </a>
 
         <h3>Visualitza receptes</h3>
 
@@ -51,7 +52,7 @@ function enviaReceptes(){
     
     // FER EL SEGÜENT APPROVE AL TOKEN: setApprovalForAll([SmartContractFarmacies], true)
     
-    await factory.methods
+    await factoryFarmacia.methods
         .enviaReceptesAlMinisteri()
         .send({ from: accounts[0]});
 

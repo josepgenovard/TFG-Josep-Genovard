@@ -18,7 +18,7 @@ class BaixaMetges extends Component {
 
     try {
         const accounts = await web3.eth.getAccounts();
-        await factory.methods
+        await factoryHospital.methods
             .baixaMetge(this.state.address)      
             .send({ from: accounts[0] });           
 

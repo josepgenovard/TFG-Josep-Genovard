@@ -19,7 +19,7 @@ class AltaFarmacies extends Component {
 
     try {
         const accounts = await web3.eth.getAccounts();
-        await factory.methods
+        await factoryMinisteri.methods
             .creaFarmacia(this.state.address, this.state.nom)
             .send({ from: accounts[0] });           // SEGUR QUE ÉS ACCOUNT[0]??????????
 

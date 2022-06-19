@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
-import { Icon, Form, Button, Message, Input } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
+import { Form, Button, Message, Input } from 'semantic-ui-react';
+import factoryMinisteri from '../ethereum/factoryMinisteri';
 import web3 from '../ethereum/web3';
 
-class IndexMinisteri extends Component {
+class AltaHospital extends Component {
   state = {
+    address: '',
+    nom: '',
     loading: false,
     errorMessage: ''
   };
@@ -15,70 +17,53 @@ class IndexMinisteri extends Component {
 
     this.setState({ loading: true, errorMessage: '' });
 
+    try {
+        const accounts = await web3.eth.getAccounts();
+        await factoryMinisteri.methods
+            .creaHospital(this.state.address, this.state.nom)   // COM S'ESCRIU LA FUNCIÓ?
+            .send({ from: accounts[0] });           // SEGUR QUE ÉS ACCOUNT[0]??????????
+
+        alert('Hospital creat!');
+        // Refresh, using withRouter
+        this.props.history.push('/');
+    } catch (err) {
+        this.setState({ errorMessage: err.message });
+    } finally {
+        this.setState({ loading: false });
+    }
 
   };
 
   render() {
     return (
-      <div>
-        <h3>Gestiona els hosptials</h3>
-        
-        <Link to="/alta/hospitals">
-            <Button
-                content = "Crea un nou hospital"
-                icon = "add user"
-                primary = {true}
+        <div>
+        <Link to='/'>Torna enrera</Link>
+        <h3>Crea un nou hospital</h3>
+        <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+          <Form.Field>
+            <label>Adreça</label>
+            <Input
+              value={this.state.address}
+              onChange={event => this.setState({ address: event.target.value })}
             />
-        </Link>
+          </Form.Field>
 
-        <Link to="/baixa/hospitals">
-            <Button
-                content = "Dona de baixa un hospital"
-                icon = "remove user"
-                primary = {true}
+          <Form.Field>
+            <label>Nom</label>
+            <Input
+              value={this.state.nom}
+              onChange={event => this.setState({ nom: event.target.value })}
             />
-        </Link>
+          </Form.Field>
 
-        <h3>Gestiona els usuaris</h3>
-        
-        <Link to="/alta/usuaris">
-            <Button
-                content = "Crea un nou usuari"
-                icon = "add user"
-                primary = {true}
-            />
-        </Link>
-
-        <Link to="/baixa/usuaris">
-            <Button
-                content = "Dona de baixa un usuari"
-                icon = "remove user"
-                primary = {true}
-            />
-        </Link>
-
-
-        <h3>Gestiona les farmàcies</h3>
-        
-        <Link to="/alta/farmacies">
-            <Button
-                content = "Crea una nova farmàcia"
-                icon = "add user"
-                primary = {true}
-            />
-        </Link>
-
-        <Link to="/baixa/farmacies">
-            <Button
-                content = "Dona de baixa una farmàcia"
-                icon = "remove user"
-                primary = {true}
-            />
-        </Link>
-
+          <Message error header="ERROR" content={this.state.errorMessage} />
+          <Button primary loading={this.state.loading}>
+            Crea
+          </Button>
+        </Form>
       </div>
     );
   }
 }
 
-export default withRouter(IndexMinisteri);
+export default withRouter(AltaHospital);

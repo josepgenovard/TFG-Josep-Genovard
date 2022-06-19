@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
+import factoryMetge from '../ethereum/factoryMetge';
 import web3 from '../ethereum/web3';
 
 class IndexMetge extends Component {
@@ -23,7 +23,7 @@ class IndexMetge extends Component {
 
     try {
         const accounts = await web3.eth.getAccounts();
-        await factory.methods
+        await factoryMetge.methods
             .creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia)
             .send({ from: accounts[0] });           
 

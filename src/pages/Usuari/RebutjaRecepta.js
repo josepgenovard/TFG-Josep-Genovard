@@ -18,7 +18,7 @@ class RebutjaRecepta extends Component {
 
     try {
         const accounts = await web3.eth.getAccounts();
-        await factory.methods
+        await factoryUsuari.methods
             .rebutjaRecepta(this.state.id)
             .send({ from: accounts[0] });
 

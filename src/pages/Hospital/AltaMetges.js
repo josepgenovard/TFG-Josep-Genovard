@@ -20,7 +20,7 @@ class AltaMetges extends Component {
 
     try {
         const accounts = await web3.eth.getAccounts();
-        await factory.methods
+        await factoryHospital.methods
             .creaMetge(this.state.address, this.state.nom, this.state.numcolegiat)
             .send({ from: accounts[0] });           
 

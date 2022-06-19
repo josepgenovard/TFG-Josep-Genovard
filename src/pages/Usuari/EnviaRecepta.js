@@ -22,7 +22,7 @@ class EnviaRecepta extends Component {
         
         // FER EL SEGÜENT APPROVE AL TOKEN: approve([SmartContractUsuaris], this.state.id)
         
-        await factory.methods
+        await factoryUsuari.methods
             .enviaReceptaAFarmacia(this.state.id, this.state.address)
             .send({ from: accounts[0] });          
 
