@@ -8,6 +8,9 @@ require('hardhat-deploy-ethers');
 require('hardhat-deploy');
 require('hardhat-gas-reporter');
 
+// Per calcular tamany del contracte
+require('hardhat-contract-sizer');
+
 const chainIds = {
   ganache: 1337,
   goerli: 5,

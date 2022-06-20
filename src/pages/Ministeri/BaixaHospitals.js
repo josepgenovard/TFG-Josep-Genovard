@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
-import web3 from '../ethereum/web3';
+import factoryMinisteri from '../../ethereum/factoryMinisteri';
+import web3 from '../../ethereum/web3';
 
 class BaixaHospitals extends Component {
   state = {
@@ -17,14 +17,22 @@ class BaixaHospitals extends Component {
     this.setState({ loading: true, errorMessage: '' });
 
     try {
-        const accounts = await web3.eth.getAccounts();
-        await factoryMinisteri.methods
-            .baixaHospital(this.state.address)      // COM S'ESCRIU LA FUNCIÓ?
-            .send({ from: accounts[0] });           // SEGUR QUE ÉS ACCOUNT[0]??????????
+      let compte;
+      web3.eth.getAccounts(function(err, accountList) {
+        if(!err) {
+            console.log("Adreça: " + accountList[0] + " connectada.");
+            compte = accountList[0];
+        }
+      });
 
-        alert('Hospital donat de baixa!');
-        // Refresh, using withRouter
-        this.props.history.push('/');
+      await factoryMinisteri.methods
+          .baixaHospital(this.state.address)      // COM S'ESCRIU LA FUNCIÓ?
+          .send({ from: compte });           // SEGUR QUE ÉS ACCOUNT[0]??????????
+
+      alert('Hospital donat de baixa!');
+      // Refresh, using withRouter
+      this.props.history.push('/');
+
     } catch (err) {
         this.setState({ errorMessage: err.message });
     } finally {

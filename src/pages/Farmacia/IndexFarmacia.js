@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Icon, Form, Button, Message, Input } from 'semantic-ui-react';
-import factoryFarmacia from '../ethereum/factory/farmacia';
-import web3 from '../ethereum/web3';
+import factoryFarmacia from '../../ethereum/factory/farmacia';
+import web3 from '../../ethereum/web3';
 
 class IndexFarmacia extends Component {
   state = {
@@ -48,13 +48,19 @@ class IndexFarmacia extends Component {
 
 function enviaReceptes(){
   try {
-    const accounts = await web3.eth.getAccounts();
+    let compte;
+    web3.eth.getAccounts(function(err, accountList) {
+      if(!err) {
+          console.log("Adreça: " + accountList[0] + " connectada.");
+          compte = accountList[0];
+      }
+    });
     
     // FER EL SEGÜENT APPROVE AL TOKEN: setApprovalForAll([SmartContractFarmacies], true)
     
     await factoryFarmacia.methods
         .enviaReceptesAlMinisteri()
-        .send({ from: accounts[0]});
+        .send({ from: compte});
 
     alert('Receptes enviades!');
     // Refresh, using withRouter

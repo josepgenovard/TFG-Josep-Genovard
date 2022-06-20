@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Icon, Form, Button, Message, Input } from 'semantic-ui-react';
-import web3 from '../ethereum/web3';
 
 class IndexHospital extends Component {
   state = {

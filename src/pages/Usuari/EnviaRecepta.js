@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
-import web3 from '../ethereum/web3';
+import factoryUsuari from '../../ethereum/factoryUsuari';
+import web3 from '../../ethereum/web3';
 
 class EnviaRecepta extends Component {
   state = {
@@ -18,17 +18,24 @@ class EnviaRecepta extends Component {
     this.setState({ loading: true, errorMessage: '' });
 
     try {
-        const accounts = await web3.eth.getAccounts();
+      let compte;
+      web3.eth.getAccounts(function(err, accountList) {
+        if(!err) {
+            console.log("Adreça: " + accountList[0] + " connectada.");
+            compte = accountList[0];
+        }
+      });
         
-        // FER EL SEGÜENT APPROVE AL TOKEN: approve([SmartContractUsuaris], this.state.id)
-        
-        await factoryUsuari.methods
-            .enviaReceptaAFarmacia(this.state.id, this.state.address)
-            .send({ from: accounts[0] });          
+      // FER EL SEGÜENT APPROVE AL TOKEN: approve([SmartContractUsuaris], this.state.id)
+      
+      await factoryUsuari.methods
+          .enviaReceptaAFarmacia(this.state.id, this.state.address)
+          .send({ from: compte });          
 
-        alert('Recepta enviada!');
-        // Refresh, using withRouter
-        this.props.history.push('/');
+      alert('Recepta enviada!');
+      // Refresh, using withRouter
+      this.props.history.push('/');
+      
     } catch (err) {
         this.setState({ errorMessage: err.message });
     } finally {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
-import web3 from '../ethereum/web3';
+import factoryUsuari from '../../ethereum/factoryUsuari';
+import web3 from '../../ethereum/web3';
 
 class RebutjaRecepta extends Component {
   state = {
@@ -17,14 +17,22 @@ class RebutjaRecepta extends Component {
     this.setState({ loading: true, errorMessage: '' });
 
     try {
-        const accounts = await web3.eth.getAccounts();
-        await factoryUsuari.methods
-            .rebutjaRecepta(this.state.id)
-            .send({ from: accounts[0] });
+      let compte;
+      web3.eth.getAccounts(function(err, accountList) {
+        if(!err) {
+            console.log("Adreça: " + accountList[0] + " connectada.");
+            compte = accountList[0];
+        }
+      });
 
-        alert('Recepta rebutjada!');
-        // Refresh, using withRouter
-        this.props.history.push('/');
+      await factoryUsuari.methods
+          .rebutjaRecepta(this.state.id)
+          .send({ from: compte });
+
+      alert('Recepta rebutjada!');
+      // Refresh, using withRouter
+      this.props.history.push('/');
+
     } catch (err) {
         this.setState({ errorMessage: err.message });
     } finally {

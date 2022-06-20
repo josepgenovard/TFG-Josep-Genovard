@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Icon, Button, Dimmer, Loader, Segment, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import factory from '../ethereum/factory';
-import web3 from '../ethereum/web3';
-import DeliveryRow from '../components/DeliveryRow';
+import factoryUsuari from '../../ethereum/factoryUsuari';
+import web3 from '../../ethereum/web3';
+import FilesVisualitzaReceptes from '../../components/FilesVisualitzaReceptes';
 
 class Home extends Component {
     state = {
@@ -14,42 +14,51 @@ class Home extends Component {
 
     componentDidMount = async () => {
         try {
-            const accounts = await web3.eth.getAccounts();
-            const senderDeliveriesCount = await factory.methods.getSenderDeliveriesCount(accounts[0]).call();
-            const receiverDeliveriesCount = await factory.methods.getReceiverDeliveriesCount(accounts[0]).call();
-
-            const senderDeliveries = await Promise.all(
-                Array(parseInt(senderDeliveriesCount))
-                  .fill()
-                  .map((delivery, index) => {
-                    return factory.methods.senderDeliveries(accounts[0], index).call();
-                  })
-              );
-
-              const receiverDeliveries = await Promise.all(
-                Array(parseInt(receiverDeliveriesCount))
-                  .fill()
-                  .map((delivery, index) => {
-                    return factory.methods.receiverDeliveries(accounts[0], index).call();
-                  })
-              );
-
-            this.setState({ 
-                senderDeliveries: senderDeliveries, 
-                receiverDeliveries: receiverDeliveries 
+            let compte;
+            web3.eth.getAccounts(function(err, accountList) {
+                if(!err) {
+                    console.log("Adreça: " + accountList[0] + " connectada.");
+                    compte = accountList[0];
+                }
             });
+            
+            const idReceptes = await factoryUsuari.methods.visualitzaIDsReceptes().call({from: compte});
+            let estat, medicament, ium, metge;
+            for (let i = 0; i< idReceptes.length; i++) {
+                
+                estat.pus+h = await factoryUsuari.methods.estatRecepta(idReceptes[i]).call({from: compte});
+
+                (metge.push, medicament.push, ium.push) = await factoryUsuari.methods.visualitzaRecepta(idReceptes[i]).call({from: compte});
+
+            }
+
         } finally {
             this.setState({ loadingPage: false })
         }
     }
 
     renderFilesVisualitzaReceptes() {
-        return this.method.visualitzaIDsReceptes((idRecepta, index) => {
+        return this.state.visualitzaIDsReceptes((idRecepta, index) => {
             return (
-                <DeliveryRow
-                    key={index}
-                    id={idRecepta}
-                />
+                <Table.Row>
+                    <Table.Cell>{this.state.idRecepta}</Table.Cell>
+                    <Table.Cell>{this.state.estat}</Table.Cell>
+                    <Table.Cell>{this.props.usuari}</Table.Cell>
+                    <Table.Cell>{this.state.nom}</Table.Cell>
+                    <Table.Cell>{this.state.ium}</Table.Cell>
+                    <Table.Cell>{this.state.metge}</Table.Cell>
+                    <Table.Cell>
+                        <Link to={"ON S'HA DE DIRIGIR???????????????????????????????????????????????"}> 
+                        <Button animated='vertical' color='blue'>
+                            <Button.Content hidden>View</Button.Content>
+                            <Button.Content visible>
+                            <Icon name='eye' />
+                            </Button.Content>
+                        </Button>
+                        </Link>
+                        <Message error header="ERROR" content={this.state.errorMessage} hidden={!this.state.errorMessage} />
+                    </Table.Cell>
+                </Table.Row>
             );
         });
     }
