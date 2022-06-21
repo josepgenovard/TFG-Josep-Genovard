@@ -26,7 +26,7 @@ class FilesVisualitzaReceptes extends Component {
       
       estat.push = await usuariContract.methods.estatRecepta(idRecepta[i]).call({from: usuari});
 
-      (metge.push, medicament.push, ium.push) = await usuariContract.methods.visualitzaRecepta(idRecepta[i]).call({from: usuari});
+      metge.push, medicament.push, ium.push = await usuariContract.methods.visualitzaRecepta(idRecepta[i]).call({from: usuari});
 
     }
     

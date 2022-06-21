@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import factoryHospital from '../../ethereum/factoryHospital';
+import notificationHospital from '../../ethereum/notificationHospital';
 import web3 from '../../ethereum/web3';
 
 class BaixaMetges extends Component {
@@ -11,27 +11,20 @@ class BaixaMetges extends Component {
     errorMessage: ''
   };
 
-  onSubmit = async event => {
-    event.preventDefault();
+  componentDidMount = async () => {
 
     this.setState({ loading: true, errorMessage: '' });
 
     try {
-      let compte;
-      web3.eth.getAccounts(function(err, accountList) {
-        if(!err) {
-            console.log("Adreça: " + accountList[0] + " connectada.");
-            compte = accountList[0];
-        }
-      });
+      const accounts = await web3.eth.getAccounts();
+      console.log("Adreça: " + accounts[0] + " connectada.");
 
-      await factoryHospital.methods
-          .baixaMetge(this.state.address)      
-          .send({ from: compte });           
+      const addresscontracteHospitals = await factoryMinisteri.methods.aHospitals();
+      let contracteHospital = notificationHospital(addresscontracteHospitals);
+
+      await contracteHospital.methods.baixaMetge(this.state.address).send({ from: accounts[0] });           
 
       alert('Metge donat de baixa!');
-      // Refresh, using withRouter
-      this.props.history.push('/');
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

@@ -12,28 +12,18 @@ class AltaFarmacies extends Component {
     errorMessage: ''
   };
 
-  onSubmit = async event => {
-    event.preventDefault();
+  componentDidMount = async () => {
 
     this.setState({ loading: true, errorMessage: '' });
 
     try {
-      let compte;
-      web3.eth.getAccounts(function(err, accountList) {
-        if(!err) {
-            console.log("Adreça: " + accountList[0] + " connectada.");
-            compte = accountList[0];
-        }
-      });
+      const accounts = await web3.eth.getAccounts();
+      console.log("Adreça: " + accounts[0] + " connectada.");
 
-      await factoryMinisteri.methods
-          .creaFarmacia(this.state.address, this.state.nom)
-          .send({ from: compte });           // SEGUR QUE ÉS ACCOUNT[0]??????????
+      await factoryMinisteri.methods.creaFarmacia(this.state.address, this.state.nom).send({ from: accounts[0] });
 
       alert('Farmàcia creada!');
-      // Refresh, using withRouter
-      this.props.history.push('/');
-
+      
     } catch (err) {
         this.setState({ errorMessage: err.message });
     } finally {

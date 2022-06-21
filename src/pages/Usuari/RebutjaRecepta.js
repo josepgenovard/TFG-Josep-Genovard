@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import factoryUsuari from '../../ethereum/factoryUsuari';
+import notificationUsuari from '../../ethereum/notificationUsuari';
 import web3 from '../../ethereum/web3';
 
 class RebutjaRecepta extends Component {
@@ -11,27 +11,19 @@ class RebutjaRecepta extends Component {
     errorMessage: ''
   };
 
-  onSubmit = async event => {
-    event.preventDefault();
+  componentDidMount = async () => {
 
     this.setState({ loading: true, errorMessage: '' });
 
     try {
-      let compte;
-      web3.eth.getAccounts(function(err, accountList) {
-        if(!err) {
-            console.log("Adreça: " + accountList[0] + " connectada.");
-            compte = accountList[0];
-        }
-      });
+      const accounts = await web3.eth.getAccounts();
+      console.log("Adreça: " + accounts[0] + " connectada.");
 
-      await factoryUsuari.methods
-          .rebutjaRecepta(this.state.id)
-          .send({ from: compte });
+      const addresscontracteUsuaris = await factoryMinisteri.methods.aUsuaris();
+      const contracteUsuaris = notificationUsuari(addresscontracteUsuaris);
+      await contracteUsuaris.methods.rebutjaRecepta(this.state.id).send({ from: accounts[0] });
 
       alert('Recepta rebutjada!');
-      // Refresh, using withRouter
-      this.props.history.push('/');
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

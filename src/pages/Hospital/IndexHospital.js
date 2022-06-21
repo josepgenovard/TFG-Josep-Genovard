@@ -8,13 +8,6 @@ class IndexHospital extends Component {
     errorMessage: ''
   };
 
-  onSubmit = async event => {
-    event.preventDefault();
-
-    this.setState({ loading: true, errorMessage: '' });
-
-
-  };
 
   render() {
     return (

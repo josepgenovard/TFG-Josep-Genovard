@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import factoryMetge from '../../ethereum/factoryMetge';
+import notificationMetge from '../../ethereum/notificationMetge';
 import web3 from '../../ethereum/web3';
 
 class IndexMetge extends Component {
@@ -16,26 +16,19 @@ class IndexMetge extends Component {
     errorMessage: ''
   };
 
-  onSubmit = async event => {
-    event.preventDefault();
+  componentDidMount = async () => {
 
     this.setState({ loading: true, errorMessage: '' });
 
     try {
-      let compte;
-      web3.eth.getAccounts(function(err, accountList) {
-        if(!err) {
-            console.log("Adreça: " + accountList[0] + " connectada.");
-            compte = accountList[0];
-        }
-      });
-      await factoryMetge.methods
-          .creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia)
-          .send({ from: compte });           
+      const accounts = await web3.eth.getAccounts();
+      console.log("Adreça: " + accounts[0] + " connectada.");
+
+      const addresscontracteMetges = await factoryMinisteri.methods.aMetges();
+      const contracteMetges = notificationMetges(addresscontracteMetges);
+      await contracteMetges.methods.creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia).send({ from: compte });           
 
       alert('Recepta creada!');
-      // Refresh, using withRouter
-      this.props.history.push('/');
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

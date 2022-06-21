@@ -1,22 +1,50 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Icon, Form, Button, Message, Input } from 'semantic-ui-react';
-import factoryFarmacia from '../../ethereum/factory/farmacia';
+import notificationFarmacia from '../../ethereum/notificationFarmacia';
 import web3 from '../../ethereum/web3';
 
 class IndexFarmacia extends Component {
   state = {
+    account:'',
     loading: false,
     errorMessage: ''
   };
 
-  onSubmit = async event => {
-    event.preventDefault();
+  componentDidMount = async () => {
+    try {
+      const accounts = await web3.eth.getAccounts();
+      this.setState({ account: accounts[0] });
+      
+
+    } finally {
+      this.setState({ loadingPage: false })
+    }
+  }
+
+
+  enviaReceptes = async event => {
 
     this.setState({ loading: true, errorMessage: '' });
-
-
+    try {
+            
+      // Es fa aprove per permetre al contracte de les farmàcies pugui transferir els tokens
+      const addresscontracteFarmacies = await factoryMinisteri.methods.aFarmacies();
+      await factoryRecepta.methods.setApprovalForAll(addresscontracteFarmacies, true).send({ from: this.state.account });
+      
+      // Es crida al contracte Farmàcies i s'executa la funció d'enviar receptes
+      const contracteFarmacia = notificationFarmacia(addresscontracteFarmacies);
+      await contracteFarmacia.methods.enviaReceptesAlMinisteri().send({ from: this.state.account});
+  
+      alert('Receptes enviades!');
+      
+    } catch (err) {
+      this.setState({ errorMessage: err.message });
+    } finally {
+      this.setState({ loading: false });
+    }
   };
+
 
   render() {
     return (
@@ -31,7 +59,7 @@ class IndexFarmacia extends Component {
             />
         </Link>
 
-        <a onClick={enviaReceptes}>
+        <a onClick={() => this.enviaReceptes}>
             <Button
                 content = "Envia totes les receptes al Ministeri"
                 icon = "send"
@@ -43,32 +71,6 @@ class IndexFarmacia extends Component {
 
       </div>
     );
-  }
-}
-
-function enviaReceptes(){
-  try {
-    let compte;
-    web3.eth.getAccounts(function(err, accountList) {
-      if(!err) {
-          console.log("Adreça: " + accountList[0] + " connectada.");
-          compte = accountList[0];
-      }
-    });
-    
-    // FER EL SEGÜENT APPROVE AL TOKEN: setApprovalForAll([SmartContractFarmacies], true)
-    
-    await factoryFarmacia.methods
-        .enviaReceptesAlMinisteri()
-        .send({ from: compte});
-
-    alert('Receptes enviades!');
-    // Refresh, using withRouter
-    this.props.history.push('/');
-  } catch (err) {
-    this.setState({ errorMessage: err.message });
-  } finally {
-    this.setState({ loading: false });
   }
 }
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Icon, Form, Button, Message, Input } from 'semantic-ui-react';
+import factoryMinisteri from '../../ethereum/factoryMinisteri'; 
+import web3 from '../../ethereum/web3';
 
 class IndexMinisteri extends Component {
   state = {
@@ -8,11 +10,23 @@ class IndexMinisteri extends Component {
     errorMessage: ''
   };
 
-  onSubmit = async event => {
-    event.preventDefault();
+  componentDidMount = async () => {
 
     this.setState({ loading: true, errorMessage: '' });
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AIXÒ NO ESTÀ FET. S'HA DE GUARDAR LA VARIABLE SCDesplagats A UNA VARIABLE GLOBAL (QUE ES PUGUI ACCEDIR CADA PIC)
+
+    if (SCDesplagats != true) {     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!AQUESTA VARIABLE SCDesplagats S'HA DE DECLARA A QUALQUE LLOC I CONSULTAR-SE COM TOCA (es podria guardar dins l'SC)
+
+      const accounts = await web3.eth.getAccounts();
+      console.log("Adreça: " + accounts[0] + " connectada.");
+    
+      // Es despleguen tots els contractes (les adreces són públiques, pel que no fa falta guardar aquestes.)
+      let adressHospital, addressFarmacia, adressUsuari, addressMetge = factoryMinisteri.methods.desplegaTotsElsSC().call({from:accounts[0]});
+
+    }
+    
+    
 
   };
 
