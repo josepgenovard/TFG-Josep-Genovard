@@ -1,52 +1,54 @@
 [
 	{
-		"anonymous": false,
 		"inputs": [
 			{
-				"indexed": true,
 				"internalType": "address",
-				"name": "previousOwner",
+				"name": "_contracteHospitals",
 				"type": "address"
 			},
 			{
-				"indexed": true,
 				"internalType": "address",
-				"name": "newOwner",
+				"name": "_aRecepta",
 				"type": "address"
 			}
 		],
-		"name": "OwnershipTransferred",
-		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
+		"type": "constructor"
 	},
 	{
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "newOwner",
+				"name": "_addressUsuari",
 				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_nomMedicament",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ium",
+				"type": "string"
+			},
+			{
+				"internalType": "uint16",
+				"name": "_anyCaducitat",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_mesCaducitat",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_diaCaducitat",
+				"type": "uint8"
 			}
 		],
-		"name": "transferOwnership",
+		"name": "creaRecepta",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
