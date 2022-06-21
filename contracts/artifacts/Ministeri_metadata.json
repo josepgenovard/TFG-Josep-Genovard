@@ -17,6 +17,71 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [],
+				"name": "aFarmacies",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "aHospitals",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "aMetges",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "aTokenRecepta",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "aUsuaris",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -131,11 +196,6 @@
 					{
 						"internalType": "address",
 						"name": "metges",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "token",
 						"type": "address"
 					}
 				],
@@ -371,10 +431,10 @@
 			]
 		},
 		"contracts/Ministeri.sol": {
-			"keccak256": "0x4e42f50a57fdd1b1cae87baa26d6114d266d7c2295a807b852ceb163d8b7d458",
+			"keccak256": "0x67cc46d8a2d235225c9432e71676e0c92e3b134b840e22756189bf3c710711a5",
 			"urls": [
-				"bzz-raw://64ebef9feaa1a796b2d2922a504ca43485da900941cddf91246b8ea7e7fb66ce",
-				"dweb:/ipfs/QmVEx9V7Sgf3ennW3Q9nNHi717Rhk8Z5X3jeqtZ8C6HQS2"
+				"bzz-raw://8666b2dfc75f48b7b29a6ab22638e32fee8758d7549934507e7b196dbcfe5873",
+				"dweb:/ipfs/QmcnUmmhFrh645b4KCu8Ubs5xmvHLSoqhJU4PkgQBsaEBk"
 			]
 		},
 		"contracts/TokenRecepta.sol": {

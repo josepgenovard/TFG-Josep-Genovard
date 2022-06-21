@@ -24,11 +24,11 @@ contract Ministeri {
 
     // Adreces dels diferents contractes
     //address private aDateTime;
-    address private aTokenRecepta;
-    address private aHospitals;
-    address private aFarmacies;
-    address private aUsuaris;
-    address private aMetges;
+    address public aTokenRecepta;
+    address public aHospitals;
+    address public aFarmacies;
+    address public aUsuaris;
+    address public aMetges;
 
 
     enum estatActor {alta, baixa}
@@ -105,7 +105,7 @@ contract Ministeri {
     ///// FUNCIONS PER DESPLAGAR ALTRES CONTRACTES /////
 
     // Funció per iniciar tots els contractes amb una sola funció
-    function despelegaTotsElsSC() public onlyByMinisteri(msg.sender) returns (address hospital, address farmacies, address usuaris, address metges, address token){
+    function despelegaTotsElsSC() public onlyByMinisteri(msg.sender) returns (address hospital, address farmacies, address usuaris, address metges){
         // Hospitals
         aHospitals = address(new Hospitals(ContracteEntitat));
         hos = Hospitals(aHospitals);
@@ -134,7 +134,7 @@ contract Ministeri {
         tr.rebAddressContracteUsuaris(aUsuaris);
         
 
-        return (aHospitals, aFarmacies, aUsuaris, aMetges, aTokenRecepta);
+        return (aHospitals, aFarmacies, aUsuaris, aMetges);
     }
     
     
