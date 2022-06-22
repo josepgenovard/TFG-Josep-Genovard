@@ -38,25 +38,25 @@ class App extends Component {
                     <Switch>
                         <Route exact path='/' component={Home}/>
 
-                        <Route exact path='/Ministeri' component={IndexMinisteri}/>
-                        <Route exact path='/Ministeri' component={AltaFarmacies}/>
-                        <Route exact path='/Ministeri' component={BaixaFarmacies}/>
-                        <Route exact path='/Ministeri' component={AltaHospitals}/>
-                        <Route exact path='/Ministeri' component={BaixaHospitals}/>
-                        <Route exact path='/Ministeri' component={AltaUsuaris}/>
-                        <Route exact path='/Ministeri' component={BaixaUsuaris}/>
+                        <Route exact path='/Ministeri/IndexMinisteri' component={IndexMinisteri}/>
+                        <Route exact path='/Ministeri/AltaFarmacies' component={AltaFarmacies}/>
+                        <Route exact path='/Ministeri/BaixaFarmacies' component={BaixaFarmacies}/>
+                        <Route exact path='/Ministeri/AltaHospitals' component={AltaHospitals}/>
+                        <Route exact path='/Ministeri/BaixaHospitals' component={BaixaHospitals}/>
+                        <Route exact path='/Ministeri/AltaUsuaris' component={AltaUsuaris}/>
+                        <Route exact path='/Ministeri/BaixaUsuaris' component={BaixaUsuaris}/>
                         
-                        <Route exact path='/Hospital' component={IndexHospital}/>
-                        <Route exact path='/Hospital' component={AltaMetges}/>
-                        <Route exact path='/Hospital' component={BaixaMetges}/>
+                        <Route exact path='/Hospital/IndexHospital' component={IndexHospital}/>
+                        <Route exact path='/Hospital/AltaMetges' component={AltaMetges}/>
+                        <Route exact path='/Hospital/BaixaMetges' component={BaixaMetges}/>
 
-                        <Route exact path='/Farmacia' component={IndexFarmacia}/>
+                        <Route exact path='/Farmacia/IndexFarmacia' component={IndexFarmacia}/>
 
-                        <Route exact path='/Metge' component={IndexMetge}/>
+                        <Route exact path='/Metge/IndexMetge' component={IndexMetge}/>
 
-                        <Route exact path='/Usuari' component={IndexUsuari}/>
-                        <Route exact path='/Usuari' component={EnviaRecepta}/>
-                        <Route exact path='/Usuari' component={RebutjaRecepta}/>
+                        <Route exact path='/Usuari/IndexUsuari' component={IndexUsuari}/>
+                        <Route exact path='/Usuari/EnviaRecepta' component={EnviaRecepta}/>
+                        <Route exact path='/Usuari/RebutjaRecepta' component={RebutjaRecepta}/>
 
                     </Switch>
                 </main>

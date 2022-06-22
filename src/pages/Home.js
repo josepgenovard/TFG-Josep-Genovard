@@ -66,7 +66,7 @@ class Home extends Component {
             console.log("Ministeri RENDER");
             return (
                 <div>
-                    <Link to='/Ministeri/IndexMinisteri'/>
+                    <Redirect to='/Ministeri/IndexMinisteri'/>
                 </div>
             );
             
@@ -74,7 +74,7 @@ class Home extends Component {
             console.log("Hospital RENDER");
             return (
                 <div>
-                    <Link to='/Hospital/IndexHospital'/>
+                    <Redirect to='/Hospital/IndexHospital'/>
                 </div>
             );
 
@@ -82,7 +82,7 @@ class Home extends Component {
             console.log("Metge RENDER");
             return (
                 <div>
-                    <Link to='/Metge/IndexMetge'/>
+                    <Redirect to='/Metge/IndexMetge'/>
                 </div>
             );
 
@@ -90,7 +90,7 @@ class Home extends Component {
             console.log("Usuari RENDER");
             return (
                 <div>
-                    <Link to='/Usuari/IndexUsuari'/>
+                    <Redirect to='/Usuari/IndexUsuari'/>
                 </div>
             );
 
@@ -98,7 +98,7 @@ class Home extends Component {
             console.log("Farmàcia RENDER");
             return (
                 <div>
-                    <Link to='/Farmacia/IndexFarmacia'/>
+                    <Redirect to='/Farmacia/IndexFarmacia'/>
                 </div>
             );
 

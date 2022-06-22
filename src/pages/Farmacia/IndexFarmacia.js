@@ -9,6 +9,7 @@ import web3 from '../../ethereum/web3';
 class IndexFarmacia extends Component {
   state = {
     account:'',
+    id:'',
     loading: false,
     errorMessage: ''
   };
@@ -51,15 +52,32 @@ class IndexFarmacia extends Component {
   render() {
     return (
       <div>
-        <h3>Gestiona receptes</h3>
         
-        <Link to="/visualitza/recepta">
-            <Button
+        <h3>Visualitza una recepta</h3>
+
+        <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+          <Form.Field>
+            <label>Id de la recepta</label>
+            <Input
+              value={this.state.id}
+              onChange={event => this.setState({ id: event.target.value })}
+            />
+          </Form.Field>
+
+          <Message error header="ERROR" content={this.state.errorMessage} />
+          <Button
+                primary loading={this.state.loading}
                 content = "Visualitza recepta"
                 icon = "send"
                 primary = {true}
             />
-        </Link>
+        </Form>
+
+
+
+        
+        <h3>Gestiona receptes</h3>
+        
 
         <a onClick={() => this.enviaReceptes}>
             <Button
@@ -68,8 +86,6 @@ class IndexFarmacia extends Component {
                 primary = {true}
             />
         </a>
-
-        <h3>Visualitza receptes</h3>
 
       </div>
     );

@@ -5,7 +5,7 @@ import factoryMinisteri from '../../ethereum/factoryMinisteri';
 import notificationUsuari from '../../ethereum/notificationUsuari';
 import web3 from '../../ethereum/web3';
 
-class Home extends Component {
+class VisualitzaReceptes extends Component {
     state = {
         loadingPage: true,
         loading: false,
@@ -52,7 +52,7 @@ class Home extends Component {
                 <Table.Cell>{this.state.ium}</Table.Cell>
                 <Table.Cell>{this.state.metge}</Table.Cell>
                 <Table.Cell>
-                    <Link to={"ON S'HA DE DIRIGIR???????????????????????????????????????????????"}> 
+                    <Link to={"/"}> 
                     <Button animated='vertical' color='blue'>
                         <Button.Content hidden>View</Button.Content>
                         <Button.Content visible>
@@ -102,4 +102,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default VisualitzaReceptes;
