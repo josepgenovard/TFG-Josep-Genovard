@@ -23,7 +23,7 @@ class EnviaRecepta extends Component {
       console.log("Adreça: " + accounts[0] + " connectada.");
         
       // Es fa aprove per permetre al contracte dels usuaris pugui transferir els tokens
-      const addresscontracteUsuaris = await factoryMinisteri.methods.aUsuaris();
+      const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris();
       await factoryRecepta.methods.approve(addresscontracteUsuaris, this.state.id).send({ from: accounts[0] });
       
       const contracteUsuaris = notificationUsuari(addresscontracteUsuaris);

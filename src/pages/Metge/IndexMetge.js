@@ -25,7 +25,7 @@ class IndexMetge extends Component {
       const accounts = await web3.eth.getAccounts();
       console.log("Adreça: " + accounts[0] + " connectada.");
 
-      const addresscontracteMetges = await factoryMinisteri.methods.aMetges();
+      const addresscontracteMetges = await factoryMinisteri.methods.getAMetges();
       const contracteMetges = notificationMetge(addresscontracteMetges);
       await contracteMetges.methods.creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia).send({ from: accounts[0] });           
 

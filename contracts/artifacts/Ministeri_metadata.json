@@ -17,71 +17,6 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "aFarmacies",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "aHospitals",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "aMetges",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "aTokenRecepta",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "aUsuaris",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -249,6 +184,71 @@
 					}
 				],
 				"name": "estatUsuari",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAFarmacies",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAHospitals",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAMetges",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAUsuaris",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getContractesDesplegats",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -431,10 +431,10 @@
 			]
 		},
 		"contracts/Ministeri.sol": {
-			"keccak256": "0x67cc46d8a2d235225c9432e71676e0c92e3b134b840e22756189bf3c710711a5",
+			"keccak256": "0x0a2659d550a9cc2277eecd5d8a0d04d4462e257a1e1c50eef5115e15771de835",
 			"urls": [
-				"bzz-raw://8666b2dfc75f48b7b29a6ab22638e32fee8758d7549934507e7b196dbcfe5873",
-				"dweb:/ipfs/QmcnUmmhFrh645b4KCu8Ubs5xmvHLSoqhJU4PkgQBsaEBk"
+				"bzz-raw://b07e8e72aeae6096a5d87bc2b98ad46449c32ffd5f1d16f9820d092e228643ed",
+				"dweb:/ipfs/QmU9LDs2L2veDSJagZajviDaokMkXnX8Vb9ePR3hWy4akG"
 			]
 		},
 		"contracts/TokenRecepta.sol": {

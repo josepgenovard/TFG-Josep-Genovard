@@ -1,58 +1,58 @@
 {
 	"abi": [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_contracteHospitals",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_aRecepta",
-				"type": "address"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_addressUsuari",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_nomMedicament",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_ium",
-				"type": "string"
-			},
-			{
-				"internalType": "uint16",
-				"name": "_anyCaducitat",
-				"type": "uint16"
-			},
-			{
-				"internalType": "uint8",
-				"name": "_mesCaducitat",
-				"type": "uint8"
-			},
-			{
-				"internalType": "uint8",
-				"name": "_diaCaducitat",
-				"type": "uint8"
-			}
-		],
-		"name": "creaRecepta",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_contracteHospitals",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_aRecepta",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_addressUsuari",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "_nomMedicament",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_ium",
+					"type": "string"
+				},
+				{
+					"internalType": "uint16",
+					"name": "_anyCaducitat",
+					"type": "uint16"
+				},
+				{
+					"internalType": "uint8",
+					"name": "_mesCaducitat",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint8",
+					"name": "_diaCaducitat",
+					"type": "uint8"
+				}
+			],
+			"name": "creaRecepta",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
 }

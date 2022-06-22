@@ -22,7 +22,7 @@ class AltaMetges extends Component {
       const accounts = await web3.eth.getAccounts();
       console.log("Adreça: " + accounts[0] + " connectada.");
 
-      const addresscontracteHospitals = await factoryMinisteri.methods.aHospitals();
+      const addresscontracteHospitals = await factoryMinisteri.methods.getAHospitals();
       let contracteHospital = notificationHospital(addresscontracteHospitals);
 
       await contracteHospital.methods.creaMetge(this.state.address, this.state.nom, this.state.numcolegiat).send({ from: accounts[0] });           

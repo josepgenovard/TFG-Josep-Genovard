@@ -32,7 +32,7 @@ class IndexFarmacia extends Component {
     try {
             
       // Es fa aprove per permetre al contracte de les farmàcies pugui transferir els tokens
-      const addresscontracteFarmacies = await factoryMinisteri.methods.aFarmacies();
+      const addresscontracteFarmacies = await factoryMinisteri.methods.getAFarmacies();
       await factoryRecepta.methods.setApprovalForAll(addresscontracteFarmacies, true).send({ from: this.state.account });
       
       // Es crida al contracte Farmàcies i s'executa la funció d'enviar receptes

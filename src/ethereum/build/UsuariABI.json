@@ -1,112 +1,112 @@
 {
 	"abi": [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_contracteMinisteri",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_aRecepta",
-				"type": "address"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_idRecepta",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_adFarmacia",
-				"type": "address"
-			}
-		],
-		"name": "enviaReceptaAFarmacia",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_idRecepta",
-				"type": "uint256"
-			}
-		],
-		"name": "estatRecepta",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_idRecepta",
-				"type": "uint256"
-			}
-		],
-		"name": "rebutjaRecepta",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "visualitzaIDsReceptes",
-		"outputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "",
-				"type": "uint256[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_idRecepta",
-				"type": "uint256"
-			}
-		],
-		"name": "visualitzaRecepta",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "nomMetge",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "medicament",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "ium",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-]
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_contracteMinisteri",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_aRecepta",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_idRecepta",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_adFarmacia",
+					"type": "address"
+				}
+			],
+			"name": "enviaReceptaAFarmacia",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_idRecepta",
+					"type": "uint256"
+				}
+			],
+			"name": "estatRecepta",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_idRecepta",
+					"type": "uint256"
+				}
+			],
+			"name": "rebutjaRecepta",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "visualitzaIDsReceptes",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_idRecepta",
+					"type": "uint256"
+				}
+			],
+			"name": "visualitzaRecepta",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "nomMetge",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "medicament",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "ium",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
 }

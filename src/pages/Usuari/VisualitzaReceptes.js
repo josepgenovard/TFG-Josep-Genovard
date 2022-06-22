@@ -20,7 +20,7 @@ class VisualitzaReceptes extends Component {
             const accounts = await web3.eth.getAccounts();
             console.log("Adreça: " + accounts[0] + " connectada.");
             
-            const addresscontracteUsuaris = await factoryMinisteri.methods.aUsuaris();
+            const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris();
             const contracteUsuaris = notificationUsuari(addresscontracteUsuaris);
             const idReceptes = await contracteUsuaris.methods.visualitzaIDsReceptes().call({from: accounts[0]});
             

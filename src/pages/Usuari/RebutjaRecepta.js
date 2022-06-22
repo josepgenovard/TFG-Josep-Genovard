@@ -20,7 +20,7 @@ class RebutjaRecepta extends Component {
       const accounts = await web3.eth.getAccounts();
       console.log("Adreça: " + accounts[0] + " connectada.");
 
-      const addresscontracteUsuaris = await factoryMinisteri.methods.aUsuaris();
+      const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris();
       const contracteUsuaris = notificationUsuari(addresscontracteUsuaris);
       await contracteUsuaris.methods.rebutjaRecepta(this.state.id).send({ from: accounts[0] });
 

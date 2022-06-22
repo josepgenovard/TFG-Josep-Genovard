@@ -24,13 +24,13 @@ contract Ministeri {
 
     // Adreces dels diferents contractes
     //address private aDateTime;
-    address public aTokenRecepta;
-    address public aHospitals;
-    address public aFarmacies;
-    address public aUsuaris;
-    address public aMetges;
+    address private aTokenRecepta;
+    address private aHospitals;
+    address private aFarmacies;
+    address private aUsuaris;
+    address private aMetges;
 
-    bool public contractesDesplegats = false;
+    bool private contractesDesplegats = false;
 
 
     enum estatActor {alta, baixa}
@@ -271,6 +271,25 @@ contract Ministeri {
 
         return false;
     
+    }
+
+
+    // Funcions per retornar variables necessaries al js
+    function getContractesDesplegats() public view returns(bool) {
+        return contractesDesplegats;
+    }
+
+    function getAFarmacies() public view returns(address) {
+        return aFarmacies;
+    }
+    function getAHospitals() public view returns(address) {
+        return aHospitals;
+    }
+    function getAUsuaris() public view returns(address) {
+        return aUsuaris;
+    }
+    function getAMetges() public view returns(address) {
+        return aMetges;
     }
     
 }
