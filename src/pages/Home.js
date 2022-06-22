@@ -56,14 +56,14 @@ class Home extends Component {
 
         }
 
-        this.render();  // TORNAM A CRIDAR EL RENDER. ÉS CORRECTE?
+        //this.render();  // TORNAM A CRIDAR EL RENDER.
     }
     
     render(){
 
         
         if(this.state.boolMinisteri) {                // MINISTERI
-            console.log("S'ha connectat el Ministeri PROVA");
+            console.log("Ministeri RENDER");
             return (
                 <div>
                     <Link to='/Ministeri/IndexMinisteri'/>
@@ -71,6 +71,7 @@ class Home extends Component {
             );
             
         } else if(this.state.boolHospital) {          // HOSPITAL
+            console.log("Hospital RENDER");
             return (
                 <div>
                     <Link to='/Hospital/IndexHospital'/>
@@ -78,6 +79,7 @@ class Home extends Component {
             );
 
         } else if(this.state.boolMetge) {             // METGE
+            console.log("Metge RENDER");
             return (
                 <div>
                     <Link to='/Metge/IndexMetge'/>
@@ -85,6 +87,7 @@ class Home extends Component {
             );
 
         } else if(this.state.boolUsuari) {            // USUARI
+            console.log("Usuari RENDER");
             return (
                 <div>
                     <Link to='/Usuari/IndexUsuari'/>
@@ -92,6 +95,7 @@ class Home extends Component {
             );
 
         } else if(this.state.boolFarmacia) {          // FARMÀCIA
+            console.log("Farmàcia RENDER");
             return (
                 <div>
                     <Link to='/Farmacia/IndexFarmacia'/>
@@ -99,7 +103,7 @@ class Home extends Component {
             );
 
         } else {                                            // UNA ALTRE ADREÇA
-            console.log("No hi ha res conectat");
+            console.log("No hi ha res conectat, encara");
             return (
                 <div>
                     <h1>Seleccionau un actor vàlid...</h1>
