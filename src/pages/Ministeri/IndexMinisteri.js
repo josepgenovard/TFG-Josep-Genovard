@@ -15,6 +15,7 @@ class IndexMinisteri extends Component {
     this.setState({ loading: true, errorMessage: '' });
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AIXÒ NO ESTÀ FET. S'HA DE GUARDAR LA VARIABLE SCDesplagats A UNA VARIABLE GLOBAL (QUE ES PUGUI ACCEDIR CADA PIC)
+    let SCDesplagats = false;   // No és així que s'ha de fer
 
     if (SCDesplagats != true) {     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!AQUESTA VARIABLE SCDesplagats S'HA DE DECLARA A QUALQUE LLOC I CONSULTAR-SE COM TOCA (es podria guardar dins l'SC)
 
@@ -23,6 +24,8 @@ class IndexMinisteri extends Component {
     
       // Es despleguen tots els contractes (les adreces són públiques, pel que no fa falta guardar aquestes.)
       let adressHospital, addressFarmacia, adressUsuari, addressMetge = factoryMinisteri.methods.desplegaTotsElsSC().call({from:accounts[0]});
+
+      SCDesplagats = true;
 
     }
     

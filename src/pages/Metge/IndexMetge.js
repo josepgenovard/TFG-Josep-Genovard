@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
+import factoryMinisteri from '../../ethereum/factoryMinisteri'; 
 import notificationMetge from '../../ethereum/notificationMetge';
 import web3 from '../../ethereum/web3';
 
@@ -25,8 +26,8 @@ class IndexMetge extends Component {
       console.log("Adreça: " + accounts[0] + " connectada.");
 
       const addresscontracteMetges = await factoryMinisteri.methods.aMetges();
-      const contracteMetges = notificationMetges(addresscontracteMetges);
-      await contracteMetges.methods.creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia).send({ from: compte });           
+      const contracteMetges = notificationMetge(addresscontracteMetges);
+      await contracteMetges.methods.creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia).send({ from: accounts[0] });           
 
       alert('Recepta creada!');
 

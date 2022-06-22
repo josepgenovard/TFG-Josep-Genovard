@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 import { Form, Button, Message, Input } from 'semantic-ui-react';
+import factoryMinisteri from '../../ethereum/factoryMinisteri'; 
+import factoryRecepta from '../../ethereum/factoryRecepta'; 
 import notificationUsuari from '../../ethereum/notificationUsuari';
 import web3 from '../../ethereum/web3';
 

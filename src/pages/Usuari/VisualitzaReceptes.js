@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon, Button, Dimmer, Loader, Segment, Table, Message } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import factoryMinisteri from '../../ethereum/factoryMinisteri'; 
 import notificationUsuari from '../../ethereum/notificationUsuari';
 import web3 from '../../ethereum/web3';
 
@@ -26,9 +27,13 @@ class Home extends Component {
             let estat, medicament, ium, metge;
             for (let i = 0; i< idReceptes.length; i++) {
                 
-                estat.push = await contracteUsuaris.methods.estatRecepta(idReceptes[i]).call({from: accounts[0]});
+                estat.push(await contracteUsuaris.methods.estatRecepta(idReceptes[i]).call({from: accounts[0]}));
 
-                metge.push, medicament.push, ium.push = await contracteUsuaris.methods.visualitzaRecepta(idReceptes[i]).call({from: accounts[0]});
+                let aux = await contracteUsuaris.methods.visualitzaRecepta(idReceptes[i]).call({from: accounts[0]});
+
+                metge.push(aux[0]);
+                medicament.push(aux[1]);
+                ium.push(aux[2]);
 
             }
 
