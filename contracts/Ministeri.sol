@@ -30,6 +30,8 @@ contract Ministeri {
     address public aUsuaris;
     address public aMetges;
 
+    bool public contractesDesplegats = false;
+
 
     enum estatActor {alta, baixa}
 
@@ -106,6 +108,9 @@ contract Ministeri {
 
     // Funció per iniciar tots els contractes amb una sola funció
     function despelegaTotsElsSC() public onlyByMinisteri(msg.sender) returns (address hospital, address farmacies, address usuaris, address metges){
+        
+        require(!contractesDesplegats, "Nomes es poden desplagar una vegada els contractes");
+        
         // Hospitals
         aHospitals = address(new Hospitals(ContracteEntitat));
         hos = Hospitals(aHospitals);
@@ -132,6 +137,8 @@ contract Ministeri {
         aUsuaris = address(new Usuaris(ContracteEntitat, aTokenRecepta));
         //Informar al contracte TokenRecepta de l'adreça que té
         tr.rebAddressContracteUsuaris(aUsuaris);
+
+        contractesDesplegats = true;
         
 
         return (aHospitals, aFarmacies, aUsuaris, aMetges);

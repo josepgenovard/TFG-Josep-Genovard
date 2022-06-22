@@ -1,9 +1,9 @@
 import web3 from './web3';
-import {ReceptaABI} from './build/ReceptaABI.js';
+const ReceptaABI = require('./build/ReceptaABI.json');
 
 const instance = new web3.eth.Contract(
-    ReceptaABI,
-    '0x3DED928143230a2B4Cb063d45ea1242014450df0'
+    ReceptaABI.abi,
+    '0x7068b982e6EF1A135BDE5014FC981D6f8040086a'
 );
 
 export default instance;

@@ -1,58 +1,16 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\DateTime.sol": {
-      "lastModificationDate": 1653650981732,
-      "contentHash": "4437fe525fe243d70b5f1dbe49c55c11",
-      "sourceName": "contracts/DateTime.sol",
-      "solcConfig": {
-        "version": "0.8.7",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.5.0 <0.9.0"
-      ],
-      "artifacts": [
-        "DateTime"
-      ]
-    },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\TokenRecepta.sol": {
-      "lastModificationDate": 1654424647380,
-      "contentHash": "0d375d3f5f4db945e3e4ca26fb1153ae",
+      "lastModificationDate": 1655478473186,
+      "contentHash": "76c435283c19cb0ed045dbaab9e013b7",
       "sourceName": "contracts/TokenRecepta.sol",
       "solcConfig": {
         "version": "0.8.7",
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -103,7 +61,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -147,7 +105,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -197,7 +155,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -239,7 +197,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -273,15 +231,15 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Ministeri.sol": {
-      "lastModificationDate": 1655286287926,
-      "contentHash": "b4f99dadab01711e333cd59130529144",
+      "lastModificationDate": 1655889807280,
+      "contentHash": "c67f922dd4c4c35f7e3ab5aefd810e37",
       "sourceName": "contracts/Ministeri.sol",
       "solcConfig": {
         "version": "0.8.7",
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -307,7 +265,6 @@
         }
       },
       "imports": [
-        "./DateTime.sol",
         "@openzeppelin/contracts/utils/Strings.sol",
         "./Hospitals.sol",
         "./TokenRecepta.sol",
@@ -323,15 +280,15 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Hospitals.sol": {
-      "lastModificationDate": 1654242813213,
-      "contentHash": "11baa0e2b18c34f26e29815eff26f828",
+      "lastModificationDate": 1655478536433,
+      "contentHash": "04bc3ac88cd1b5965380eddbb77db6c8",
       "sourceName": "contracts/Hospitals.sol",
       "solcConfig": {
         "version": "0.8.7",
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -367,15 +324,15 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Usuaris.sol": {
-      "lastModificationDate": 1654356464102,
-      "contentHash": "b657fec81bfa4977000bf5f664733ecc",
+      "lastModificationDate": 1655478447812,
+      "contentHash": "f6aadbb91dc04bd22e8ef62b7f73bacf",
       "sourceName": "contracts/Usuaris.sol",
       "solcConfig": {
         "version": "0.8.7",
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -420,7 +377,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -462,7 +419,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -506,7 +463,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -548,7 +505,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -592,7 +549,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -634,7 +591,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -676,7 +633,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -720,7 +677,7 @@
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -754,15 +711,15 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Farmacies.sol": {
-      "lastModificationDate": 1654358738634,
-      "contentHash": "a63626ef42f4f81bec7f78c001f2b1f3",
+      "lastModificationDate": 1655818236903,
+      "contentHash": "f140ef9ae7a376683d6ef1557856c939",
       "sourceName": "contracts/Farmacies.sol",
       "solcConfig": {
         "version": "0.8.7",
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -799,15 +756,15 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Metges.sol": {
-      "lastModificationDate": 1654356294114,
-      "contentHash": "0799ccd845b2f0074c93c8af7e0a42cf",
+      "lastModificationDate": 1655478537810,
+      "contentHash": "85b0f90ae4e408d1ba9a009f93b5de54",
       "sourceName": "contracts/Metges.sol",
       "solcConfig": {
         "version": "0.8.7",
         "settings": {
           "optimizer": {
             "enabled": true,
-            "runs": 200
+            "runs": 1
           },
           "outputSelection": {
             "*": {
@@ -842,6 +799,48 @@
       ],
       "artifacts": [
         "Metges"
+      ]
+    },
+    "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\DateTime.sol": {
+      "lastModificationDate": 1655453759702,
+      "contentHash": "4437fe525fe243d70b5f1dbe49c55c11",
+      "sourceName": "contracts/DateTime.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 1
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0 <0.9.0"
+      ],
+      "artifacts": [
+        "DateTime"
       ]
     }
   }

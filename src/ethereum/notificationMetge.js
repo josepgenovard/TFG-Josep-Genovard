@@ -1,9 +1,9 @@
 import web3 from './web3';
-import {MetgeABI} from './build/MetgeABI.js';
+const MetgeABI = require('./build/MetgeABI.json');
 
 export default (address) => {
     return new web3.eth.Contract(
-        MetgeABI,
+        MetgeABI.abi,
         address
     );
 }
