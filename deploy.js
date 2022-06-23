@@ -7,9 +7,12 @@ async function main() {
   });
   const recepta = await Recepta.deploy();
 
+  console.log("Desplegant Recepta a l'adreça:", recepta.address);
+
   await recepta.deployed();
 
   console.log("Recepta deployed to:", recepta.address);
+  
 
   const Ministeri = await ethers.getContractFactory("Ministeri", {
     libraries: {
@@ -17,6 +20,10 @@ async function main() {
     },
   });
   const ministeri = await Ministeri.deploy(recepta.address);
+  //const ministeri = await Ministeri.deploy('0x7068b982e6EF1A135BDE5014FC981D6f8040086a');
+
+
+  console.log("Desplegant Ministeri a l'adreça:", ministeri.address);
 
   await ministeri.deployed();
 
