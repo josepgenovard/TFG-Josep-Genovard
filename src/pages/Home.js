@@ -63,7 +63,7 @@ class Home extends Component {
 
         
         if(this.state.boolMinisteri) {                // MINISTERI
-            console.log("Ministeri RENDER");
+            console.log("Redirigint a IndexMinisteri");
             return (
                 <div>
                     <Redirect to='/Ministeri/IndexMinisteri'/>
@@ -71,7 +71,7 @@ class Home extends Component {
             );
             
         } else if(this.state.boolHospital) {          // HOSPITAL
-            console.log("Hospital RENDER");
+            console.log("Redirigint a IndexHospital");
             return (
                 <div>
                     <Redirect to='/Hospital/IndexHospital'/>
@@ -79,7 +79,7 @@ class Home extends Component {
             );
 
         } else if(this.state.boolMetge) {             // METGE
-            console.log("Metge RENDER");
+            console.log("Redirigint a IndexMetge");
             return (
                 <div>
                     <Redirect to='/Metge/IndexMetge'/>
@@ -87,7 +87,7 @@ class Home extends Component {
             );
 
         } else if(this.state.boolUsuari) {            // USUARI
-            console.log("Usuari RENDER");
+            console.log("Redirigint a IndexUsuari");
             return (
                 <div>
                     <Redirect to='/Usuari/IndexUsuari'/>
@@ -95,7 +95,7 @@ class Home extends Component {
             );
 
         } else if(this.state.boolFarmacia) {          // FARMÀCIA
-            console.log("Farmàcia RENDER");
+            console.log("Redirigint a IndexFarmacia");
             return (
                 <div>
                     <Redirect to='/Farmacia/IndexFarmacia'/>
@@ -106,7 +106,10 @@ class Home extends Component {
             console.log("No hi ha res conectat, encara");
             return (
                 <div>
-                    <h1>Seleccionau un actor vàlid...</h1>
+                    <h1></h1>
+                    <h1>Activau el Metamask i seleccionau un actor vàlid</h1>
+
+                    <h3>Si la pàgina no s'actualitza, refrescau-la</h3>
                 </div>
             );
         }

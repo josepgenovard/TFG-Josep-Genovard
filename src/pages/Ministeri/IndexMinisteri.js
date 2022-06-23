@@ -26,7 +26,7 @@ class IndexMinisteri extends Component {
       console.log("Desplagament de contractes");
 
     } else {
-      console.log("Contractes ja desplagats");
+      console.log("Contractes ja desplegats");
     }
     
   };

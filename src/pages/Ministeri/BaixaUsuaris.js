@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
-import { Form, Button, Message, Input } from 'semantic-ui-react';
+import { Form, Button, Message, Input, Icon } from 'semantic-ui-react';
 import factoryMinisteri from '../../ethereum/factoryMinisteri';
 import web3 from '../../ethereum/web3';
 
@@ -36,7 +36,8 @@ class BaixaFarmacies extends Component {
       <div>
         <h1></h1>
         <Link to='/'>Torna enrera</Link>
-        <h3>Dona de baixa un usuari</h3>
+        <h3><Icon name='remove user' circular />&nbsp;Dona de baixa un usuari</h3>
+        
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
             <label>Adreça</label>

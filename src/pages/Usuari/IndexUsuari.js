@@ -38,7 +38,7 @@ class IndexUsuari extends Component {
         <Link to="/Usuari/VisualitzaReceptes">
             <Button
                 content = "Visualitza receptes"
-                icon = "eye"
+                icon = "list"
                 primary = {true}
             />
         </Link>

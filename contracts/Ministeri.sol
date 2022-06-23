@@ -20,7 +20,7 @@ contract Ministeri {
     Hospitals private hos;
     Recepta private tr;
 
-    address private Owner;
+    address private Owner = 0x5735cff62509A9bab97DF7c4c51D495564170639;
 
     // Adreces dels diferents contractes
     //address private aDateTime;
@@ -39,7 +39,6 @@ contract Ministeri {
     // Constructor del contracte
     constructor (address _aTokenRecepta) public {
         ContracteEntitat = address(uint160(address(this)));
-        Owner = 0x5735cff62509A9bab97DF7c4c51D495564170639;
         aTokenRecepta = _aTokenRecepta;
         tr = Recepta(aTokenRecepta);
     }

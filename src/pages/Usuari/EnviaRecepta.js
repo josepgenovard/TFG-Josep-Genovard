@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
-import { Form, Button, Message, Input } from 'semantic-ui-react';
+import { Form, Button, Message, Input, Icon } from 'semantic-ui-react';
 import factoryMinisteri from '../../ethereum/factoryMinisteri'; 
 import factoryRecepta from '../../ethereum/factoryRecepta'; 
 import notificationUsuari from '../../ethereum/notificationUsuari';
@@ -44,7 +44,7 @@ class EnviaRecepta extends Component {
       <div>
         <h1></h1>
         <Link to='/'>Torna enrera</Link>
-        <h3>Envia recepta a una farmàcia</h3>
+        <h3><Icon name='send' circular />&nbsp;Envia recepta a una farmàcia</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           
           <Form.Field>

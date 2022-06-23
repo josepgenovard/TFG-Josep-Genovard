@@ -57,6 +57,7 @@ class App extends Component {
                         <Route exact path='/Usuari/IndexUsuari' component={IndexUsuari}/>
                         <Route exact path='/Usuari/EnviaRecepta' component={EnviaRecepta}/>
                         <Route exact path='/Usuari/RebutjaRecepta' component={RebutjaRecepta}/>
+                        <Route exact path='/Usuari/VisualitzaReceptes' component={VisualitzaReceptes}/>
 
                     </Switch>
                 </main>
