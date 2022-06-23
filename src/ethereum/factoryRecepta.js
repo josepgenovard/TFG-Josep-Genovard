@@ -6,6 +6,6 @@ const instance = new web3.eth.Contract(
     '0x3A1dee4Ca5184636F772c72921C937AAb2b3c447'
 );
 
-console.log("Contracte Recepta:" + instance);
+console.log(instance);
 
 export default instance;

@@ -6,6 +6,6 @@ const instance = new web3.eth.Contract(
     '0x8d301A816e21D04b6CC1D812A2af7cda2bd3fB51'
 );
 
-console.log("Contracte Ministeri:" + instance);
+console.log(instance);
 
 export default instance;
