@@ -18,7 +18,7 @@ class IndexMinisteri extends Component {
     console.log("Adreça: " + accounts[0] + " connectada.");
 
     // Només s'ha dexecutar una vegada, quan contractesDesplegats sigui false
-    let contractesDesplegats = await factoryMinisteri.methods.getContractesDesplegats().call({ from: accounts[0] });
+    let contractesDesplegats = await factoryMinisteri.methods.getContractesDesplegats().call({from: accounts[0]});
     if (!contractesDesplegats) {
 
       // Es despleguen tots els contractes (les adreces són públiques, pel que no fa falta guardar aquestes.)
@@ -27,8 +27,6 @@ class IndexMinisteri extends Component {
 
     }
     
-    
-
   };
 
   render() {
