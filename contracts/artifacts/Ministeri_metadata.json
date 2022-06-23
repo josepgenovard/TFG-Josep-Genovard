@@ -111,7 +111,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "despelegaTotsElsSC",
+				"name": "desplegaTotsElsSC",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -431,10 +431,10 @@
 			]
 		},
 		"contracts/Ministeri.sol": {
-			"keccak256": "0x0a2659d550a9cc2277eecd5d8a0d04d4462e257a1e1c50eef5115e15771de835",
+			"keccak256": "0x07166a24edec29ab8fc5cd4a4874ca48917494c22e8a70bb2942a1445c5bb6db",
 			"urls": [
-				"bzz-raw://b07e8e72aeae6096a5d87bc2b98ad46449c32ffd5f1d16f9820d092e228643ed",
-				"dweb:/ipfs/QmU9LDs2L2veDSJagZajviDaokMkXnX8Vb9ePR3hWy4akG"
+				"bzz-raw://a8d00dbb4beefcb6ba472e643e84a705726d869e3df20f33ae837ddc4dd665c7",
+				"dweb:/ipfs/QmXoxZ3nS3ssEyruS1UuQs5BPQkpmrBD1gvJN7hDNppbRV"
 			]
 		},
 		"contracts/TokenRecepta.sol": {

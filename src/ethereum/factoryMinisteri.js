@@ -8,7 +8,7 @@ const MinisteriABI = require('./build/MinisteriABI.json');
 
 const instance = new web3.eth.Contract(
     MinisteriABI.abi,
-    '0xcE00bBf3515337EEEa0be0920D0b792e48Eddf17'
+    '0x957D680A7DECfdcA58549cC9070a58f669193893'
 );
 
 export default instance;

@@ -4,128 +4,12 @@
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "_aFarmacia",
-					"type": "address"
-				}
-			],
-			"name": "baixaFarmacia",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aHospital",
-					"type": "address"
-				}
-			],
-			"name": "baixaHospital",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aUsuari",
-					"type": "address"
-				}
-			],
-			"name": "baixaUsuari",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aFarmacia",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "_nom",
-					"type": "string"
-				}
-			],
-			"name": "creaFarmacia",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aHospital",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "_nom",
-					"type": "string"
-				}
-			],
-			"name": "creaHospital",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aUsuari",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "_nom",
-					"type": "string"
-				}
-			],
-			"name": "creaUsuari",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "despelegaTotsElsSC",
-			"outputs": [
-				{
-					"internalType": "address",
-					"name": "hospital",
+					"name": "_contracteHospitals",
 					"type": "address"
 				},
 				{
 					"internalType": "address",
-					"name": "farmacies",
-					"type": "address"
-				},
-				{
-					"internalType": "address",
-					"name": "usuaris",
-					"type": "address"
-				},
-				{
-					"internalType": "address",
-					"name": "metges",
-					"type": "address"
-				}
-			],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aTokenRecepta",
+					"name": "_aRecepta",
 					"type": "address"
 				}
 			],
@@ -136,141 +20,38 @@
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "_address",
+					"name": "_addressUsuari",
 					"type": "address"
-				}
-			],
-			"name": "estatFarmacia",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_address",
-					"type": "address"
-				}
-			],
-			"name": "estatHopital",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_address",
-					"type": "address"
-				}
-			],
-			"name": "estatUsuari",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getAFarmacies",
-			"outputs": [
-				{
-					"internalType": "address",
-					"name": "",
-					"type": "address"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getAHospitals",
-			"outputs": [
-				{
-					"internalType": "address",
-					"name": "",
-					"type": "address"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getAMetges",
-			"outputs": [
-				{
-					"internalType": "address",
-					"name": "",
-					"type": "address"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getAUsuaris",
-			"outputs": [
-				{
-					"internalType": "address",
-					"name": "",
-					"type": "address"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getContractesDesplegats",
-			"outputs": [
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_idUsuari",
-					"type": "address"
-				}
-			],
-			"name": "nomUsuari",
-			"outputs": [
+				},
 				{
 					"internalType": "string",
-					"name": "",
+					"name": "_nomMedicament",
 					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_ium",
+					"type": "string"
+				},
+				{
+					"internalType": "uint16",
+					"name": "_anyCaducitat",
+					"type": "uint16"
+				},
+				{
+					"internalType": "uint8",
+					"name": "_mesCaducitat",
+					"type": "uint8"
+				},
+				{
+					"internalType": "uint8",
+					"name": "_diaCaducitat",
+					"type": "uint8"
 				}
 			],
-			"stateMutability": "view",
+			"name": "creaRecepta",
+			"outputs": [],
+			"stateMutability": "nonpayable",
 			"type": "function"
 		}
 	]

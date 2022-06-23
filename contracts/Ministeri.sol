@@ -107,7 +107,7 @@ contract Ministeri {
     ///// FUNCIONS PER DESPLAGAR ALTRES CONTRACTES /////
 
     // Funció per iniciar tots els contractes amb una sola funció
-    function despelegaTotsElsSC() public onlyByMinisteri(msg.sender) returns (address hospital, address farmacies, address usuaris, address metges){
+    function desplegaTotsElsSC() public onlyByMinisteri(msg.sender) returns (address hospital, address farmacies, address usuaris, address metges){
         
         require(!contractesDesplegats, "Nomes es poden desplagar una vegada els contractes");
         

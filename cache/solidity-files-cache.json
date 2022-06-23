@@ -231,8 +231,8 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Ministeri.sol": {
-      "lastModificationDate": 1655928672010,
-      "contentHash": "3d7ddb9b0425076c5cf49e961673b82e",
+      "lastModificationDate": 1655971804928,
+      "contentHash": "aeff8d320dbac7f8cf9612f1add939b8",
       "sourceName": "contracts/Ministeri.sol",
       "solcConfig": {
         "version": "0.8.7",
