@@ -431,10 +431,10 @@
 			]
 		},
 		"contracts/Ministeri.sol": {
-			"keccak256": "0x07166a24edec29ab8fc5cd4a4874ca48917494c22e8a70bb2942a1445c5bb6db",
+			"keccak256": "0x777ad72778c55f17682162fc2063372c03028b831a8b3f0da6fe24568b14c878",
 			"urls": [
-				"bzz-raw://a8d00dbb4beefcb6ba472e643e84a705726d869e3df20f33ae837ddc4dd665c7",
-				"dweb:/ipfs/QmXoxZ3nS3ssEyruS1UuQs5BPQkpmrBD1gvJN7hDNppbRV"
+				"bzz-raw://c40b0aaeb342448fa583243ba5426214edf6fb0eb50b78d1ac0339f174b5ac92",
+				"dweb:/ipfs/QmPAiGMCHjyTn6W7VuMph5wgHzted9rQNmsZktP6YFdY1P"
 			]
 		},
 		"contracts/TokenRecepta.sol": {

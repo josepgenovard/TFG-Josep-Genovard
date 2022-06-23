@@ -3,7 +3,9 @@ const ReceptaABI = require('./build/ReceptaABI.json');
 
 const instance = new web3.eth.Contract(
     ReceptaABI.abi,
-    '0xc94439b1518AFE01eeccBD353af397e367F7be49'
+    '0x3A1dee4Ca5184636F772c72921C937AAb2b3c447'
 );
+
+console.log("Contracte Recepta:" + instance);
 
 export default instance;

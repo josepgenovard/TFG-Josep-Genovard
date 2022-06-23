@@ -39,8 +39,7 @@ contract Ministeri {
     // Constructor del contracte
     constructor (address _aTokenRecepta) public {
         ContracteEntitat = address(uint160(address(this)));
-        Owner = msg.sender;
-        //aDateTime = 0x92482Ba45A4D2186DafB486b322C6d0B88410FE7;
+        Owner = 0x5735cff62509A9bab97DF7c4c51D495564170639;
         aTokenRecepta = _aTokenRecepta;
         tr = Recepta(aTokenRecepta);
     }
