@@ -34,7 +34,8 @@ class AltaHospital extends Component {
 
   render() {
     return (
-        <div>
+      <div>
+        <h1></h1>
         <Link to='/'>Torna enrera</Link>
         <h3>Crea un nou hospital</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>

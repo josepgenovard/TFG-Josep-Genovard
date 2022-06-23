@@ -25,6 +25,8 @@ class IndexMinisteri extends Component {
       let adressHospital, addressFarmacia, adressUsuari, addressMetge = factoryMinisteri.methods.desplegaTotsElsSC().call({from:accounts[0]});
       console.log("Desplagament de contractes");
 
+    } else {
+      console.log("Contractes ja desplagats");
     }
     
   };
@@ -32,9 +34,10 @@ class IndexMinisteri extends Component {
   render() {
     return (
       <div>
+        <h1></h1>
         <h3>Gestiona els hosptials</h3>
         
-        <Link to="/alta/hospitals">
+        <Link to="/Ministeri/AltaHospitals">
             <Button
                 content = "Crea un nou hospital"
                 icon = "add user"
@@ -42,7 +45,7 @@ class IndexMinisteri extends Component {
             />
         </Link>
 
-        <Link to="/baixa/hospitals">
+        <Link to="/Ministeri/BaixaHospitals">
             <Button
                 content = "Dona de baixa un hospital"
                 icon = "remove user"
@@ -50,9 +53,11 @@ class IndexMinisteri extends Component {
             />
         </Link>
 
+        <h1></h1>
+
         <h3>Gestiona els usuaris</h3>
         
-        <Link to="/alta/usuaris">
+        <Link to="/Ministeri/AltaUsuaris">
             <Button
                 content = "Crea un nou usuari"
                 icon = "add user"
@@ -60,7 +65,7 @@ class IndexMinisteri extends Component {
             />
         </Link>
 
-        <Link to="/baixa/usuaris">
+        <Link to="/Ministeri/BaixaUsuaris">
             <Button
                 content = "Dona de baixa un usuari"
                 icon = "remove user"
@@ -68,10 +73,11 @@ class IndexMinisteri extends Component {
             />
         </Link>
 
+        <h1></h1>
 
         <h3>Gestiona les farmàcies</h3>
         
-        <Link to="/alta/farmacies">
+        <Link to="/Ministeri/AltaFarmacies">
             <Button
                 content = "Crea una nova farmàcia"
                 icon = "add user"
@@ -79,7 +85,7 @@ class IndexMinisteri extends Component {
             />
         </Link>
 
-        <Link to="/baixa/farmacies">
+        <Link to="/Ministeri/BaixaFarmacies">
             <Button
                 content = "Dona de baixa una farmàcia"
                 icon = "remove user"

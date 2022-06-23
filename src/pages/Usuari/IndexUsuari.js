@@ -12,9 +12,10 @@ class IndexUsuari extends Component {
   render() {
     return (
       <div>
+        <h1></h1>
         <h3>Gestiona les teves receptes</h3>
         
-        <Link to="/envia/recepta">
+        <Link to="/Usuari/EnviaRecepta">
             <Button
                 content = "Envia recepta a una farmàcia"
                 icon = "send"
@@ -22,7 +23,7 @@ class IndexUsuari extends Component {
             />
         </Link>
 
-        <Link to="/rebutja/recepta">
+        <Link to="/Usuari/RebutjaRecepta">
             <Button
                 content = "Rebutja recepta"
                 icon = "remove"
@@ -30,9 +31,11 @@ class IndexUsuari extends Component {
             />
         </Link>
 
+        <h1></h1>
+
         <h3>Visualitza receptes</h3>
         
-        <Link to="/visualitza/receptes">
+        <Link to="/Usuari/VisualitzaReceptes">
             <Button
                 content = "Visualitza receptes"
                 icon = "eye"

@@ -52,7 +52,7 @@ class IndexFarmacia extends Component {
   render() {
     return (
       <div>
-        
+        <h1></h1>
         <h3>Visualitza una recepta</h3>
 
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
@@ -74,7 +74,7 @@ class IndexFarmacia extends Component {
         </Form>
 
 
-
+        <h1></h1>
         
         <h3>Gestiona receptes</h3>
         

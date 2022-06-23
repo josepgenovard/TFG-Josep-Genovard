@@ -37,7 +37,8 @@ class BaixaMetges extends Component {
 
   render() {
     return (
-        <div>
+      <div>
+        <h1></h1>
         <Link to='/'>Torna enrera</Link>
         <h3>Dona de baixa un metge</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>

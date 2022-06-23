@@ -12,9 +12,10 @@ class IndexHospital extends Component {
   render() {
     return (
       <div>
+        <h1></h1>
         <h3>Gestiona la plantilla</h3>
         
-        <Link to="/alta/metges">
+        <Link to="/Hospital/AltaMetges">
             <Button
                 content = "Crea un nou metge"
                 icon = "add user"
@@ -22,7 +23,7 @@ class IndexHospital extends Component {
             />
         </Link>
 
-        <Link to="/baixa/metges">
+        <Link to="/Hospital/BaixaMetges">
             <Button
                 content = "Dona de baixa un metge"
                 icon = "remove user"

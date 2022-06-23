@@ -81,6 +81,7 @@ class VisualitzaReceptes extends Component {
         // Done
         return (
             <div>
+                <h1></h1>
                 <h3><Icon name='sign in alternate' circular />&nbsp;Received deliveries</h3>
                 <Table fixed>
                     <Table.Header>

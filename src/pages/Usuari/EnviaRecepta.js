@@ -41,7 +41,8 @@ class EnviaRecepta extends Component {
 
   render() {
     return (
-        <div>
+      <div>
+        <h1></h1>
         <Link to='/'>Torna enrera</Link>
         <h3>Envia recepta a una farmàcia</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>

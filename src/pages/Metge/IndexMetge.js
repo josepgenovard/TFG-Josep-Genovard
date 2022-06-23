@@ -41,7 +41,8 @@ class IndexMetge extends Component {
 
   render() {
     return (
-        <div>
+      <div>
+        <h1></h1>
         <h3>Crea una recepta</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
