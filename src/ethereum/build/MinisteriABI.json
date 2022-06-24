@@ -4,6 +4,17 @@
 			"inputs": [
 				{
 					"internalType": "address",
+					"name": "_aTokenRecepta",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
 					"name": "_aFarmacia",
 					"type": "address"
 				}
@@ -120,17 +131,6 @@
 			],
 			"stateMutability": "nonpayable",
 			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_aTokenRecepta",
-					"type": "address"
-				}
-			],
-			"stateMutability": "nonpayable",
-			"type": "constructor"
 		},
 		{
 			"inputs": [

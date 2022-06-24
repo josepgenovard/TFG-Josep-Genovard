@@ -18,12 +18,12 @@ class IndexMinisteri extends Component {
     console.log("Adreça: " + accounts[0] + " connectada.");
 
     // Només s'ha dexecutar una vegada, quan contractesDesplegats sigui false
-    let contractesDesplegats = await factoryMinisteri.methods.getContractesDesplegats().call({from: accounts[0]});
+    let contractesDesplegats = await factoryMinisteri.methods.getContractesDesplegats().call();
     if (!contractesDesplegats) {
 
       // Es despleguen tots els contractes (les adreces són públiques, pel que no fa falta guardar aquestes.)
-      let adressHospital, addressFarmacia, adressUsuari, addressMetge = factoryMinisteri.methods.desplegaTotsElsSC().call({from:accounts[0]});
-      console.log("Desplagament de contractes");
+      let adressHospital, addressFarmacia, adressUsuari, addressMetge = factoryMinisteri.methods.desplegaTotsElsSC().send({from:accounts[0]});
+      console.log("Desplegament de contractes");
 
     } else {
       console.log("Contractes ja desplegats");

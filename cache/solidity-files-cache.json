@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\TokenRecepta.sol": {
-      "lastModificationDate": 1655478473186,
+      "lastModificationDate": 1655993925775,
       "contentHash": "76c435283c19cb0ed045dbaab9e013b7",
       "sourceName": "contracts/TokenRecepta.sol",
       "solcConfig": {
@@ -97,7 +97,7 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
-      "lastModificationDate": 1655378844663,
+      "lastModificationDate": 1655993861969,
       "contentHash": "21b9f3bdb3e60f56ea81361c37420136",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -231,8 +231,8 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Ministeri.sol": {
-      "lastModificationDate": 1655977027618,
-      "contentHash": "8a0613a96f9b35ba6665932c67d80ac2",
+      "lastModificationDate": 1655993919648,
+      "contentHash": "f1392fc07e613003af33dd3a56286ff9",
       "sourceName": "contracts/Ministeri.sol",
       "solcConfig": {
         "version": "0.8.7",
