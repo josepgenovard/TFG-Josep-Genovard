@@ -14,7 +14,8 @@ class EnviaRecepta extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -23,13 +24,14 @@ class EnviaRecepta extends Component {
       console.log("Adreça: " + accounts[0] + " connectada.");
         
       // Es fa aprove per permetre al contracte dels usuaris pugui transferir els tokens
-      const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris();
+      const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris().call();
       await factoryRecepta.methods.approve(addresscontracteUsuaris, this.state.id).send({ from: accounts[0] });
       
-      const contracteUsuaris = notificationUsuari(addresscontracteUsuaris);
+      const contracteUsuaris = await notificationUsuari(addresscontracteUsuaris);
       await contracteUsuaris.methods.enviaReceptaAFarmacia(this.state.id, this.state.address).send({ from: accounts[0] });          
 
       alert('Recepta enviada!');
+      window.location.reload();
       
     } catch (err) {
         this.setState({ errorMessage: err.message });

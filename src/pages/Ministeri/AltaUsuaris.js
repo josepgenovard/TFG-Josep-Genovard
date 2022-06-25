@@ -12,7 +12,8 @@ class AltaUsuaris extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -23,6 +24,7 @@ class AltaUsuaris extends Component {
       await factoryMinisteri.methods.creaUsuari(this.state.address, this.state.nom).send({ from: accounts[0] });
 
       alert('Usuari creat!');
+      window.location.reload();
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

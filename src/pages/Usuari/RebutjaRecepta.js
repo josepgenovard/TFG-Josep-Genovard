@@ -12,7 +12,8 @@ class RebutjaRecepta extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -20,11 +21,12 @@ class RebutjaRecepta extends Component {
       const accounts = await web3.eth.getAccounts();
       console.log("Adreça: " + accounts[0] + " connectada.");
 
-      const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris();
-      const contracteUsuaris = notificationUsuari(addresscontracteUsuaris);
+      const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris().call();
+      const contracteUsuaris = await notificationUsuari(addresscontracteUsuaris);
       await contracteUsuaris.methods.rebutjaRecepta(this.state.id).send({ from: accounts[0] });
 
       alert('Recepta rebutjada!');
+      window.location.reload();
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

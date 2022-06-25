@@ -12,7 +12,8 @@ class AltaHospital extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -23,6 +24,7 @@ class AltaHospital extends Component {
       await factoryMinisteri.methods.creaHospital(this.state.address, this.state.nom).send({ from: accounts[0] });
 
       alert('Hospital creat!');
+      window.location.reload();
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

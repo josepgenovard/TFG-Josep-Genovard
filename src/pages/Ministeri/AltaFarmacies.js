@@ -12,7 +12,8 @@ class AltaFarmacies extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -23,6 +24,7 @@ class AltaFarmacies extends Component {
       await factoryMinisteri.methods.creaFarmacia(this.state.address, this.state.nom).send({ from: accounts[0] });
 
       alert('Farmàcia creada!');
+      window.location.reload();
       
     } catch (err) {
         this.setState({ errorMessage: err.message });

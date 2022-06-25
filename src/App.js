@@ -49,6 +49,7 @@ class App extends Component {
                         <Route exact path='/Hospital/IndexHospital' component={IndexHospital}/>
                         <Route exact path='/Hospital/AltaMetges' component={AltaMetges}/>
                         <Route exact path='/Hospital/BaixaMetges' component={BaixaMetges}/>
+                        <Route exact path='/Hospital/VisualitzaPlantilla' component={VisualitzaPlantilla}/>
 
                         <Route exact path='/Farmacia/IndexFarmacia' component={IndexFarmacia}/>
 

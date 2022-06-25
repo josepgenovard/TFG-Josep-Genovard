@@ -1,125 +1,66 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Table, Button, Icon, Message, Form } from 'semantic-ui-react';
-import notification from '../ethereum/notification';
+import factoryMinisteri from '../../ethereum/factoryMinisteri'; 
+import notificationUsuari from '../../ethereum/notificationUsuari';
+import web3 from '../../ethereum/web3';
+
 
 class FilesVisualitzaReceptes extends Component {
   state = {
-    idRecepta: '',
-    estat: '',
-    nom: '',
-    ium: '',
-    metge: '',
+    ids:'',
+    estat:'',
+    medicament:'',
+    ium:'',
+    metge:'',
     loading: false,
     errorMessage: '',
   };
 
+
   componentDidMount = async () => {
+    const accounts = await web3.eth.getAccounts();
+    console.log("Adreça: " + accounts[0] + " connectada.");
+    
+    const addresscontracteUsuaris = await factoryMinisteri.methods.getAUsuaris().call();
+    const contracteUsuaris = await notificationUsuari(addresscontracteUsuaris);
+    const idReceptes = await contracteUsuaris.methods.visualitzaIDsReceptes().call({from: accounts[0]});
+    this.setState({ids: idReceptes});
 
-    // COM SE LI PASSA EL COMPTE??
+    let aux1, aux2;
+    for (let i = 0; i< idReceptes.length; i++) {
+        
+        aux1 = await contracteUsuaris.methods.estatRecepta(idReceptes[i]).call({from: accounts[0]});
+        this.setState({ estat: [...this.state.estat, aux1] });
 
-    let idRecepta = await usuariContract.methods.visualitzaIDsReceptes().call({from: XXXXXXXXXX});
-    let estat, nom, ium, metge;
-
-
-    for (let i = 0; i< idRecepta.length; i++) {
-      
-      estat.push = await usuariContract.methods.estatRecepta(idRecepta[i]).call({from: usuari});
-
-      metge.push, medicament.push, ium.push = await usuariContract.methods.visualitzaRecepta(idRecepta[i]).call({from: usuari});
+        aux2 = await contracteUsuaris.methods.visualitzaRecepta(idReceptes[i]).call({from: accounts[0]});
+        this.setState({ metge: [...this.state.metge, aux2[0]], medicament: [...this.state.medicament, aux2[1]], ium: [...this.state.ium, aux2[2]] });
 
     }
-    
-    
-
-    this.setState({ 
-    idRecepta: idRecepta,
-    estat: estat,
-    nom: nom,
-    ium: ium,
-    metge: metge
-    });
   }
 
-  onView = async () => {
-    /*const campaign = Campaign(this.props.address);
-
-    await campaign.methods.approveRequest(this.props.id).send({
-      from: accounts[0]
-    });*/
-  };
-
-  onAccept = async (contractAddress) => {
-
-    this.setState({ loading: true, errorMessage: '' });
-    
-    try {
-      // Refresh
-      alert('Delivery accepted!');
-      this.setState({ state: 'accepted' });
-    } catch (err) {
-      this.setState({ errorMessage: err.message });
-    } finally {
-        this.setState({ loading: false });
-    }
-  };
-
-  onFinish = async (contractAddress) => {
-
-    this.setState({ loading: true, errorMessage: '' });
-
-    try {
-      // Refresh
-      alert('Delivery finished!');
-      this.setState({ state: 'finished' });
-    } catch (err) {
-      this.setState({ errorMessage: err.message });
-    } finally {
-        this.setState({ loading: false });
-    }
-  };
-
   render() {
-      return (
-          <Table.Row>
-              <Table.Cell>{this.state.idRecepta}</Table.Cell>
-              <Table.Cell>{this.state.estat}</Table.Cell>
-              <Table.Cell>{this.props.usuari}</Table.Cell>
-              <Table.Cell>{this.state.nom}</Table.Cell>
-              <Table.Cell>{this.state.ium}</Table.Cell>
-              <Table.Cell>{this.state.metge}</Table.Cell>
-              <Table.Cell>
-                {
-                  this.props.sent ? (
-                    <Button animated='vertical' color='blue' onClick={() => this.onFinish(this.props.delivery)} disabled={this.state.state!=='accepted'} loading={this.state.loading}>
-                      <Button.Content hidden>Finish</Button.Content>
-                      <Button.Content visible>
-                        <Icon name='send' />
-                      </Button.Content>
-                    </Button>
-                  ) : (
-                    <Button animated='vertical' color='blue' onClick={() => this.onAccept(this.props.delivery)} disabled={this.state.state!=='created'} loading={this.state.loading}>
-                      <Button.Content hidden>Accept</Button.Content>
-                      <Button.Content visible>
-                        <Icon name='check' />
-                      </Button.Content>
-                  </Button>
-                  )
-                }
-                <Link to={"/deliveries/"+this.props.delivery}>
-                  <Button animated='vertical' color='blue' onClick={this.onView}>
-                    <Button.Content hidden>View</Button.Content>
-                    <Button.Content visible>
-                      <Icon name='eye' />
-                    </Button.Content>
-                  </Button>
-                </Link>
-                <Message error header="ERROR" content={this.state.errorMessage} hidden={!this.state.errorMessage} />
-              </Table.Cell>
-          </Table.Row>
-          
-      );
-    }
+    return (
+      <Table.Row>
+          <Table.Cell>{this.state.ids}</Table.Cell>
+          <Table.Cell>{this.state.estat}</Table.Cell>
+          <Table.Cell>{this.state.medicament}</Table.Cell>
+          <Table.Cell>{this.state.ium}</Table.Cell>
+          <Table.Cell>{this.state.metge}</Table.Cell>
+          <Table.Cell>
+              <Link to={"/"}> 
+              <Button animated='vertical' color='blue'>
+                  <Button.Content hidden>View</Button.Content>
+                  <Button.Content visible>
+                  <Icon name='eye' />
+                  </Button.Content>
+              </Button>
+              </Link>
+              <Message error header="ERROR" content={this.state.errorMessage} hidden={!this.state.errorMessage} />
+          </Table.Cell>
+      </Table.Row>
+    );
+  }
 }
 
 export default FilesVisualitzaReceptes;

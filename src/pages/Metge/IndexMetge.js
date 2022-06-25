@@ -17,7 +17,8 @@ class IndexMetge extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -25,11 +26,12 @@ class IndexMetge extends Component {
       const accounts = await web3.eth.getAccounts();
       console.log("Adreça: " + accounts[0] + " connectada.");
 
-      const addresscontracteMetges = await factoryMinisteri.methods.getAMetges();
-      const contracteMetges = notificationMetge(addresscontracteMetges);
+      const addresscontracteMetges = await factoryMinisteri.methods.getAMetges().call();
+      const contracteMetges = await notificationMetge(addresscontracteMetges);
       await contracteMetges.methods.creaRecepta(this.state.address, this.state.nom, this.state.ium, this.state.any, this.state.mes, this.state.dia).send({ from: accounts[0] });           
 
       alert('Recepta creada!');
+      window.location.reload();
 
     } catch (err) {
         this.setState({ errorMessage: err.message });
@@ -69,7 +71,9 @@ class IndexMetge extends Component {
             />
           </Form.Field>
 
-          Indica la data de caducitat
+          <h2></h2>
+
+          <h5>Indica la data de caducitat:</h5>
           <Form.Field>
             <label>Dia</label>
             <Input

@@ -116,11 +116,6 @@
 			"name": "visualitzaPlantilla",
 			"outputs": [
 				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				},
-				{
 					"internalType": "address[]",
 					"name": "",
 					"type": "address[]"

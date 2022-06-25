@@ -31,7 +31,7 @@ class IndexHospital extends Component {
             />
         </Link>
 
-        <Link to="/visualitza/plantilla">
+        <Link to="/Hospital/VisualitzaPlantilla">
             <Button
                 content = "Visualitza la plantilla"
                 icon = "users"

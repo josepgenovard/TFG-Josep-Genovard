@@ -12,7 +12,8 @@ class BaixaMetges extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -20,12 +21,13 @@ class BaixaMetges extends Component {
       const accounts = await web3.eth.getAccounts();
       console.log("Adreça: " + accounts[0] + " connectada.");
 
-      const addresscontracteHospitals = await factoryMinisteri.methods.getAHospitals();
-      let contracteHospital = notificationHospital(addresscontracteHospitals);
+      const addresscontracteHospitals = await factoryMinisteri.methods.getAHospitals().call();
+      let contracteHospital = await notificationHospital(addresscontracteHospitals);
 
       await contracteHospital.methods.baixaMetge(this.state.address).send({ from: accounts[0] });           
 
       alert('Metge donat de baixa!');
+      window.location.reload();
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

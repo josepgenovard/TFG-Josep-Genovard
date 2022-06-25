@@ -14,20 +14,22 @@ class AltaMetges extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
-
+    
     try {
       const accounts = await web3.eth.getAccounts();
       console.log("Adreça: " + accounts[0] + " connectada.");
 
-      const addresscontracteHospitals = await factoryMinisteri.methods.getAHospitals();
-      let contracteHospital = notificationHospital(addresscontracteHospitals);
+      const addresscontracteHospitals = await factoryMinisteri.methods.getAHospitals().call();
+      let contracteHospital = await notificationHospital(addresscontracteHospitals);
 
       await contracteHospital.methods.creaMetge(this.state.address, this.state.nom, this.state.numcolegiat).send({ from: accounts[0] });           
 
       alert('Metge creat!');
+      window.location.reload();
 
     } catch (err) {
         this.setState({ errorMessage: err.message });

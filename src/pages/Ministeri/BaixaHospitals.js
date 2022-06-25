@@ -11,7 +11,8 @@ class BaixaHospitals extends Component {
     errorMessage: ''
   };
 
-  componentDidMount = async () => {
+  onSubmit = async event => {
+    event.preventDefault();
 
     this.setState({ loading: true, errorMessage: '' });
 
@@ -22,6 +23,7 @@ class BaixaHospitals extends Component {
       await factoryMinisteri.methods.baixaHospital(this.state.address).send({ from: accounts[0] });
 
       alert('Hospital donat de baixa!');
+      window.location.reload();
 
     } catch (err) {
         this.setState({ errorMessage: err.message });
