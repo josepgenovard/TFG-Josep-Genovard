@@ -7,7 +7,6 @@ import web3 from '../../ethereum/web3';
 
 class VisualitzaReceptes extends Component {
     state = {
-        numMetges:'',
         plantillaNum:'',
         plantilla:'',
         loadingPage: true,
@@ -18,11 +17,10 @@ class VisualitzaReceptes extends Component {
     componentDidMount = async () => {
 
         try {
-            debugger;
             const accounts = await web3.eth.getAccounts();
             console.log("Adreça: " + accounts[0] + " connectada.");
             
-            const addresscontracteHospital = await factoryMinisteri.methods.getAUsuaris().call();
+            const addresscontracteHospital = await factoryMinisteri.methods.getAHospitals().call();
             const contracteHospital = await notificationHospital(addresscontracteHospital);
             let totalReturn = await contracteHospital.methods.visualitzaPlantilla().call({from: accounts[0]});
 
@@ -44,11 +42,22 @@ class VisualitzaReceptes extends Component {
     }
 
     renderVisualitzaPlantilla() {
-        return this.state.plantillaNum.map(() => {
+        let arrayPlantilla = [this.state.plantillaNum, this.state.plantilla];
+        let arrayCanviat = [];
+
+        //Canvi de files per columnes
+        for(let i=0;i<this.state.plantillaNum.length;i++){
+            arrayCanviat.push([])
+            for(let j=0;j<arrayPlantilla.length;j++){
+                arrayCanviat[i].push(arrayPlantilla[j][i])
+            }
+        }
+
+        return arrayCanviat.map((arrayCanviat, index) => {
             return (
                 <Table.Row>
-                    <Table.Cell>{this.state.plantillaNum}</Table.Cell>
-                    <Table.Cell>{this.state.plantilla}</Table.Cell>
+                    <Table.Cell>{arrayCanviat[0]}</Table.Cell>
+                    <Table.Cell>{arrayCanviat[1]}</Table.Cell>
                 </Table.Row>
             );
         });
