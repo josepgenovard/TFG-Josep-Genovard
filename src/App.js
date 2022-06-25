@@ -19,7 +19,6 @@ import BaixaMetges from './pages/Hospital/BaixaMetges';
 import VisualitzaPlantilla from './pages/Hospital/VisualitzaPlantilla';
 
 import IndexFarmacia from './pages/Farmacia/IndexFarmacia';
-import VisualitzaRecepta from './pages/Farmacia/VisualitzaRecepta';
 
 import IndexMetge from './pages/Metge/IndexMetge';
 
