@@ -115,9 +115,9 @@ contract Hospitals {
 
 
     // Funció perque un hospital visualitzi la seva plantilla
-    function visualitzaPlantilla() public view onlyByHospitals(msg.sender) returns(uint, address[] memory) {
+    function visualitzaPlantilla() public view onlyByHospitals(msg.sender) returns(address[] memory) {
 
-        return (PlantillaMap[msg.sender].nombreDeMetgesPlantilla, PlantillaMap[msg.sender].plantilla);
+        return (PlantillaMap[msg.sender].plantilla);
 
     }
 
