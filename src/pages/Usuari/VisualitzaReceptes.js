@@ -54,7 +54,7 @@ class VisualitzaReceptes extends Component {
     }
 
     renderFilesVisualitzaReceptes() {
-        return this.state.ids.map(() => {
+        return this.state.ids.map((ids) => {
             return (
                 <Table.Row>
                     <Table.Cell>{this.state.ids}</Table.Cell>
