@@ -54,25 +54,25 @@ class VisualitzaReceptes extends Component {
     }
 
     renderFilesVisualitzaReceptes() {
-        return this.state.ids.map((ids) => {
+        
+        let idRecepta = [this.state.ids, this.state.estat, this.state.medicament, this.state.ium, this.state.metge];
+        let arrayCanviat = [];
+        //Canvi de files per columnes
+        for(let i=0;i<this.state.ids.length;i++){
+            arrayCanviat.push([])
+            for(let j=0;j<idRecepta.length;j++){
+                arrayCanviat[i].push(idRecepta[j][i])
+            }
+        }
+
+        return arrayCanviat.map((arrayCanviat, index) => {
             return (
                 <Table.Row>
-                    <Table.Cell>{this.state.ids}</Table.Cell>
-                    <Table.Cell>{this.state.estat}</Table.Cell>
-                    <Table.Cell>{this.state.medicament}</Table.Cell>
-                    <Table.Cell>{this.state.ium}</Table.Cell>
-                    <Table.Cell>{this.state.metge}</Table.Cell>
-                    <Table.Cell>
-                        <Link to={"/"}> 
-                        <Button animated='vertical' color='blue'>
-                            <Button.Content hidden>View</Button.Content>
-                            <Button.Content visible>
-                            <Icon name='eye' />
-                            </Button.Content>
-                        </Button>
-                        </Link>
-                        <Message error header="ERROR" content={this.state.errorMessage} hidden={!this.state.errorMessage} />
-                    </Table.Cell>
+                    <Table.Cell>{arrayCanviat[0]}</Table.Cell>
+                    <Table.Cell>{arrayCanviat[1]}</Table.Cell>
+                    <Table.Cell>{arrayCanviat[2]}</Table.Cell>
+                    <Table.Cell>{arrayCanviat[3]}</Table.Cell>
+                    <Table.Cell>{arrayCanviat[4]}</Table.Cell>
                 </Table.Row>
             );
         });
@@ -105,7 +105,6 @@ class VisualitzaReceptes extends Component {
                             <Table.HeaderCell>Nom fàrmac</Table.HeaderCell>
                             <Table.HeaderCell>IUM</Table.HeaderCell>
                             <Table.HeaderCell>Nom metge</Table.HeaderCell>
-                            <Table.HeaderCell>Action</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>{this.renderFilesVisualitzaReceptes()}</Table.Body>
