@@ -850,10 +850,10 @@
 			]
 		},
 		"contracts/Hospitals.sol": {
-			"keccak256": "0x8ea4206043f9ba7d12ea0825c5057f61da99878f2dbc7d7c093389957e726dfa",
+			"keccak256": "0x2729fef29c5398bc8b3167b2748367afcf8d8254ffdf760ab21fc056db186fdc",
 			"urls": [
-				"bzz-raw://8707f3d5c8d0bbd4e1bcbe76d50d9736dc208b7143edba651b1738a8c1338806",
-				"dweb:/ipfs/QmSkzqZiiF1TNb6Sck9BZF9v9idenkk8kDms3EGzovLZys"
+				"bzz-raw://6ac3d963ce05efab241bcc47760e1a06c28ea04d6a652ffcac8549d3dbd92b55",
+				"dweb:/ipfs/QmVBMT1vEioBNuP11LEz51pkQpPzdU7YodaFhnWCSJL6JB"
 			]
 		},
 		"contracts/Metges.sol": {
@@ -871,10 +871,10 @@
 			]
 		},
 		"contracts/TokenRecepta.sol": {
-			"keccak256": "0x2c8e013120fbccb7c91773ed42ff9d52a9a74b07f18ea0d5686d87b6c5cf4466",
+			"keccak256": "0xbd61a08803e1f754ba606667cd9bdb153508955750894f0ca01c0ebc73d6d4c9",
 			"urls": [
-				"bzz-raw://080eef929b5d28f2191c4cca6665a4afb2d22c4533c0c3de60b4b81ea5701e4c",
-				"dweb:/ipfs/QmRLSBVxohkFcjXt4t7RvbH3JSMo2Jokhap31sCSjCRkXw"
+				"bzz-raw://a529e5ff09ec51a84a5f1ddf18ed953c33af9461859f4fcd5621e640939fec6e",
+				"dweb:/ipfs/QmPYnj85vadrJnfqytvmQhJpqRpQBc3oYWW46hauFAku7X"
 			]
 		},
 		"contracts/Usuaris.sol": {

@@ -20,7 +20,7 @@ contract Recepta is Ownable, ERC721 {
     address private aMetges;
     address private aFarmacies;
     address private aUsuaris;
-    address private addressMinisteri;
+    address private addressMinisteri = 0x5735cff62509A9bab97DF7c4c51D495564170639;
 
     address private aDateTime = 0x92482Ba45A4D2186DafB486b322C6d0B88410FE7;
 
@@ -276,7 +276,6 @@ contract Recepta is Ownable, ERC721 {
         mi = Ministeri(_contracteMinisteri);
         hos = Hospitals(_aHospitals);
         aContracteMinisteri = _contracteMinisteri;
-        addressMinisteri = msg.sender;
     }
 
 }
