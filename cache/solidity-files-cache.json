@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\TokenRecepta.sol": {
-      "lastModificationDate": 1656182984434,
-      "contentHash": "b864e825314ff4fe4917867c4a0111e0",
+      "lastModificationDate": 1656252739293,
+      "contentHash": "46e1c060f1c8f9bf5c0425255a91df67",
       "sourceName": "contracts/TokenRecepta.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -711,7 +711,7 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Farmacies.sol": {
-      "lastModificationDate": 1656182777362,
+      "lastModificationDate": 1656250778838,
       "contentHash": "f140ef9ae7a376683d6ef1557856c939",
       "sourceName": "contracts/Farmacies.sol",
       "solcConfig": {
@@ -756,8 +756,8 @@
       ]
     },
     "C:\\Users\\josep\\Documents\\TFG\\Implementacio\\FINAL\\contracts\\Metges.sol": {
-      "lastModificationDate": 1655478537810,
-      "contentHash": "85b0f90ae4e408d1ba9a009f93b5de54",
+      "lastModificationDate": 1656252769558,
+      "contentHash": "e2f8cbc3e45a4203d3ff7ccd5682e989",
       "sourceName": "contracts/Metges.sol",
       "solcConfig": {
         "version": "0.8.7",

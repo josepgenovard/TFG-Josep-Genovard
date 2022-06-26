@@ -37,7 +37,7 @@ contract Metges {
     ///// GESTIÓ DE LES RECEPTES /////
 
     // Funció per crear una recepte de medicament
-    function creaRecepta(address _addressUsuari, string memory _nomMedicament, string memory _ium, uint16 _anyCaducitat, uint8 _mesCaducitat, uint8 _diaCaducitat) public{// onlyByMetges(msg.sender){
+    function creaRecepta(address _addressUsuari, string memory _nomMedicament, string memory _ium, uint16 _anyCaducitat, uint8 _mesCaducitat, uint8 _diaCaducitat) public onlyByMetges(msg.sender){
         
         rcp.crearRecepta(_addressUsuari, msg.sender, _nomMedicament, _ium, _anyCaducitat, _mesCaducitat, _diaCaducitat);
         

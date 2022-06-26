@@ -166,9 +166,9 @@ contract Recepta is Ownable, ERC721 {
 
             dadesReceptaMap[_idRecepta].estat = estatRecepta.tramitada;
 
-            // S'elimina la recepta d el'historial de l'usuari
+            // S'elimina la recepta de l'historial de la framàcia
             uint posicioRecepta = PosicioArrayaMap[_idRecepta];
-            delete receptesPropietariMap[rec.idUsuari].ids[posicioRecepta];
+            delete receptesPropietariMap[_adFarmacia].ids[posicioRecepta];
             
             return ("Valida", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
 
@@ -176,9 +176,9 @@ contract Recepta is Ownable, ERC721 {
 
             dadesReceptaMap[_idRecepta].estat = estatRecepta.rebutjada;
 
-            // S'elimina la recepta d el'historial de l'usuari
+            // S'elimina la recepta de l'historial de la framàcia
             uint posicioRecepta = PosicioArrayaMap[_idRecepta];
-            delete receptesPropietariMap[rec.idUsuari].ids[posicioRecepta];
+            delete receptesPropietariMap[_adFarmacia].ids[posicioRecepta];
             
             return ("Caducada", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
 
@@ -198,7 +198,7 @@ contract Recepta is Ownable, ERC721 {
 
                 transferFrom(_adFarmacia, addressMinisteri, receptesFarmacia[i]);
 
-            } else {        // Si té estat rebutjada -> s'elimina
+            } else if (dadesReceptaMap[receptesFarmacia[i]].estat == estatRecepta.rebutjada){        // Si té estat rebutjada -> s'elimina
 
                 _burn(receptesFarmacia[i]);
 
