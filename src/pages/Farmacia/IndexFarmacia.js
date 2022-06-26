@@ -33,39 +33,21 @@ class IndexFarmacia extends Component {
         const contracteFarm = await notificationFarmacia(addresscontracteFarmacies);
         this.setState({contracteFarmacia: contracteFarm, account: accounts[0], addressContracte: addresscontracteFarmacies});
 
-
     } finally {
     }
   }
 
-  renderVisualitzaRecepta() {
-    debugger;
-    return (() => {
-      return (
-          <Table.Row>
-              <Table.Cell>{this.state.id}</Table.Cell>
-              <Table.Cell>{this.state.validesa}</Table.Cell>
-              <Table.Cell>{this.state.nomUsusari}</Table.Cell>
-              <Table.Cell>{this.state.nomMetge}</Table.Cell>
-              <Table.Cell>{this.state.nomMedicament}</Table.Cell>
-              <Table.Cell>{this.state.ium}</Table.Cell>
-          </Table.Row>
-      );
-    });
-    
-  }
 
   onSubmit = async event => {
     event.preventDefault();
     this.setState({ loading: true, errorMessage: '' });
     try {
       debugger;
-      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).call({ from: this.state.account});
+      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).send({ from: this.state.account});
       
       this.setState({validesa: dadesRecepta[0], nomUsusari: dadesRecepta[1], nomMetge: dadesRecepta[2], nomMedicament: dadesRecepta[3], ium: dadesRecepta[4]});
   
       this.setState({visualitzacioDemana: true});
-      //this.renderVisualitzaRecepta();
       
     } catch (err) {
       this.setState({ errorMessage: err.message });
@@ -76,13 +58,13 @@ class IndexFarmacia extends Component {
 
 
   enviaReceptes = async event => {
-    debugger;
-  //onSubmit = async event => {
 
     this.setState({ loading: true, errorMessageDos: '' });
     try {
-            
-      if(await !factoryRecepta.methods.isApprovedForAll(this.state.account, this.state.addressContracte).call({ from: this.state.account })) {
+      
+      let aprovat = await factoryRecepta.methods.isApprovedForAll(this.state.account, this.state.addressContracte).call({ from: this.state.account });
+      
+      if(!aprovat) {
         // Es fa aprove per permetre al contracte de les farmàcies pugui transferir els tokens
       await factoryRecepta.methods.setApprovalForAll(this.state.addressContracte, true).send({ from: this.state.account });
       }
@@ -137,7 +119,16 @@ class IndexFarmacia extends Component {
                         <Table.HeaderCell>IUM</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
-                <Table.Body>{this.renderVisualitzaRecepta()}</Table.Body>
+                <Table.Body>
+                  <Table.Row>
+                    <Table.Cell>{this.state.id}</Table.Cell>
+                    <Table.Cell>{this.state.validesa}</Table.Cell>
+                    <Table.Cell>{this.state.nomUsusari}</Table.Cell>
+                    <Table.Cell>{this.state.nomMetge}</Table.Cell>
+                    <Table.Cell>{this.state.nomMedicament}</Table.Cell>
+                    <Table.Cell>{this.state.ium}</Table.Cell>
+                  </Table.Row>
+                </Table.Body>
             </Table>
     
     
@@ -145,7 +136,7 @@ class IndexFarmacia extends Component {
             
             <h3>Gestiona receptes</h3>
     
-            <Form onSubmit={this.onSubmit} error={!!this.state.errorMessageDos}>
+            <Form error={!!this.state.errorMessageDos}>
               <Message error header="ERROR" content={this.state.errorMessageDos} />
               <a onClick={() => this.enviaReceptes()}>
                   <Button
@@ -188,7 +179,7 @@ class IndexFarmacia extends Component {
             
             <h3>Gestiona receptes</h3>
     
-            <Form onSubmit={this.onSubmit} error={!!this.state.errorMessageDos}>
+            <Form error={!!this.state.errorMessageDos}>
               <Message error header="ERROR" content={this.state.errorMessageDos} />
               <a onClick={() => this.enviaReceptes()}>
                   <Button
