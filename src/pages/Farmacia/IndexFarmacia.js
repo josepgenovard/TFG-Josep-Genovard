@@ -44,7 +44,7 @@ class IndexFarmacia extends Component {
     this.setState({ loading: true, errorMessage: '' });
     try {
       debugger;
-      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).call({ from: this.state.account});
+      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).send({ from: this.state.account});
       
       this.setState({idImprimir: this.state.id, validesa: dadesRecepta[0], nomUsusari: dadesRecepta[1], nomMetge: dadesRecepta[2], nomMedicament: dadesRecepta[3], ium: dadesRecepta[4]});
   
