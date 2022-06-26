@@ -9,6 +9,7 @@ import web3 from '../../ethereum/web3';
 class IndexFarmacia extends Component {
   state = {
     id:'',
+    idImprimir:'',
     validesa:'',
     nomUsusari:'',
     nomMetge:'',
@@ -43,9 +44,9 @@ class IndexFarmacia extends Component {
     this.setState({ loading: true, errorMessage: '' });
     try {
       debugger;
-      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).send({ from: this.state.account});
+      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).call({ from: this.state.account});
       
-      this.setState({validesa: dadesRecepta[0], nomUsusari: dadesRecepta[1], nomMetge: dadesRecepta[2], nomMedicament: dadesRecepta[3], ium: dadesRecepta[4]});
+      this.setState({idImprimir: this.state.id, validesa: dadesRecepta[0], nomUsusari: dadesRecepta[1], nomMetge: dadesRecepta[2], nomMedicament: dadesRecepta[3], ium: dadesRecepta[4]});
   
       this.setState({visualitzacioDemana: true});
       
@@ -121,7 +122,7 @@ class IndexFarmacia extends Component {
                 </Table.Header>
                 <Table.Body>
                   <Table.Row>
-                    <Table.Cell>{this.state.id}</Table.Cell>
+                    <Table.Cell>{this.state.idImprimir}</Table.Cell>
                     <Table.Cell>{this.state.validesa}</Table.Cell>
                     <Table.Cell>{this.state.nomUsusari}</Table.Cell>
                     <Table.Cell>{this.state.nomMetge}</Table.Cell>
