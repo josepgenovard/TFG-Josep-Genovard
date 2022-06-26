@@ -166,17 +166,13 @@ contract Recepta is Ownable, ERC721 {
 
             dadesReceptaMap[_idRecepta].estat = estatRecepta.tramitada;
 
-            // S'elimina la recepta de l'historial de la framàcia
-            uint posicioRecepta = PosicioArrayaMap[_idRecepta];
-            delete receptesPropietariMap[_adFarmacia].ids[posicioRecepta];
-            
             return ("Valida", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
 
         } else {
 
             dadesReceptaMap[_idRecepta].estat = estatRecepta.rebutjada;
 
-            // S'elimina la recepta de l'historial de la framàcia
+            // S'elimina la recepta de l'historial de la farmàcia
             uint posicioRecepta = PosicioArrayaMap[_idRecepta];
             delete receptesPropietariMap[_adFarmacia].ids[posicioRecepta];
             
@@ -203,6 +199,10 @@ contract Recepta is Ownable, ERC721 {
                 _burn(receptesFarmacia[i]);
 
             }
+
+            // S'elimina la recepta de l'historial de la farmàcia
+            uint posicioRecepta = PosicioArrayaMap[receptesFarmacia[i]];
+            delete receptesPropietariMap[_adFarmacia].ids[posicioRecepta];
             
         }
 

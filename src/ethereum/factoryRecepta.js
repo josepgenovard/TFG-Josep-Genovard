@@ -3,7 +3,7 @@ const ReceptaABI = require('./build/ReceptaABI.json');
 
 const instance = new web3.eth.Contract(
     ReceptaABI.abi,
-    '0x88dFc5D6d00036C0254Fa5AE9d86061c2ff0Ab17'
+    '0x76594E312fD622934B67de80aD57A677378172FA'
 );
 
 console.log(instance);
