@@ -9,6 +9,7 @@ class VisualitzaReceptes extends Component {
     state = {
         plantillaNum:'',
         plantilla:'',
+        nomMetge:'',
         loadingPage: true,
         loading: false,
         errorMessage: ''
@@ -33,6 +34,14 @@ class VisualitzaReceptes extends Component {
                 }
             }
 
+            const addresscontracteMetges = await factoryMinisteri.methods.getAMetges().call();
+            let nomMet;
+            for (let i = 0; i < this.state.plantilla.length; i++) {
+                nomMet = await contracteHospital.methods.nomMetge(this.state.plantilla[i]).call({from: addresscontracteMetges});
+                this.setState({ nomMetge: [...this.state.nomMetge, nomMet] });
+            }
+            
+
         } catch(err){
             this.setState({ errorMessage: err.message });
             console.log(err);
@@ -42,7 +51,7 @@ class VisualitzaReceptes extends Component {
     }
 
     renderVisualitzaPlantilla() {
-        let arrayPlantilla = [this.state.plantillaNum, this.state.plantilla];
+        let arrayPlantilla = [this.state.plantillaNum, this.state.plantilla, this.state.nomMetge];
         let arrayCanviat = [];
 
         //Canvi de files per columnes
@@ -58,6 +67,7 @@ class VisualitzaReceptes extends Component {
                 <Table.Row>
                     <Table.Cell>{arrayCanviat[0]}</Table.Cell>
                     <Table.Cell>{arrayCanviat[1]}</Table.Cell>
+                    <Table.Cell>{arrayCanviat[2]}</Table.Cell>
                 </Table.Row>
             );
         });
@@ -87,6 +97,7 @@ class VisualitzaReceptes extends Component {
                         <Table.Row>
                             <Table.HeaderCell>Num del metge</Table.HeaderCell>
                             <Table.HeaderCell>Adreça</Table.HeaderCell>
+                            <Table.HeaderCell>Nom del metge</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>{this.renderVisualitzaPlantilla()}</Table.Body>
