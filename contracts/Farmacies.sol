@@ -41,13 +41,25 @@ contract Farmacies {
     ///// GESTIÓ DE LES RECEPTES /////
 
     // Funció per visual·litzar una recepta
-    function visualitzaRecepta(uint _idRecepta) public onlyByFarmaciesPropietaria(msg.sender) returns(string memory valida, string memory nomUsuari, string memory nomMetge, string memory medicament, string memory ium){
+    function visualitzaRecepta(uint _idRecepta) public view onlyByFarmaciesPropietaria(msg.sender) returns(string memory valida, string memory nomUsuari, string memory nomMetge, string memory medicament, string memory ium){
         
         // al contracte TokenRecepta es comprova que la farmàcia sigui la propietaria
         
         return rcp.visualitzaRecepta(_idRecepta, msg.sender);
         
     }
+
+
+    // Funció per canviar l'estat d'una recepta
+    function canviaEstatRecepta(uint _idRecepta) public onlyByFarmaciesPropietaria(msg.sender) {
+        
+        // al contracte TokenRecepta es comprova que la farmàcia sigui la propietaria
+        
+        rcp.canviaEstatRecepta(_idRecepta, msg.sender);
+        
+    }
+
+
 
     
     // Funció per enviar totes les receptes propietaries de la farmàcia al ministeri
@@ -56,5 +68,6 @@ contract Farmacies {
         rcp.enviaReceptesMinisteri(msg.sender);
         
     }
+
 
 }

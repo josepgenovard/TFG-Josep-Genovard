@@ -9,6 +9,7 @@ import web3 from '../../ethereum/web3';
 class IndexFarmacia extends Component {
   state = {
     id:'',
+    idTramita:'',
     idImprimir:'',
     validesa:'',
     nomUsusari:'',
@@ -44,11 +45,25 @@ class IndexFarmacia extends Component {
     this.setState({ loading: true, errorMessage: '' });
     try {
       debugger;
-      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).send({ from: this.state.account});
+      let dadesRecepta = await this.state.contracteFarmacia.methods.visualitzaRecepta(this.state.id).call({ from: this.state.account});
       
       this.setState({idImprimir: this.state.id, validesa: dadesRecepta[0], nomUsusari: dadesRecepta[1], nomMetge: dadesRecepta[2], nomMedicament: dadesRecepta[3], ium: dadesRecepta[4]});
   
       this.setState({visualitzacioDemana: true});
+      
+    } catch (err) {
+      this.setState({ errorMessage: err.message });
+    } finally {
+      this.setState({ loading: false });
+    }
+  }
+
+  onTramita = async event => {
+    event.preventDefault();
+    this.setState({ loading: true, errorMessage: '' });
+    try {
+      
+      await this.state.contracteFarmacia.methods.canviaEstatRecepta(this.state.idTramita).send({ from: this.state.account});
       
     } catch (err) {
       this.setState({ errorMessage: err.message });
@@ -66,7 +81,7 @@ class IndexFarmacia extends Component {
       let aprovat = await factoryRecepta.methods.isApprovedForAll(this.state.account, this.state.addressContracte).call({ from: this.state.account });
       
       if(!aprovat) {
-        // Es fa aprove per permetre al contracte de les farmàcies pugui transferir els tokens
+        // Es fa aprove per permetre al contracte de les farmàcies transferir els tokens
       await factoryRecepta.methods.setApprovalForAll(this.state.addressContracte, true).send({ from: this.state.account });
       }
       
@@ -136,6 +151,26 @@ class IndexFarmacia extends Component {
             <h1></h1>
             
             <h3>Gestiona receptes</h3>
+
+            <Form onSubmit={this.onTramita} error={!!this.state.errorMessage}>
+              <Form.Field>
+                <label>Id de la recepta</label>
+                <Input
+                  value={this.state.idTramita}
+                  onChange={event => this.setState({ idTramita: event.target.value })}
+                />
+              </Form.Field>
+    
+              <Message error header="ERROR" content={this.state.errorMessage} />
+              <Button
+                primary loading={this.state.loading}
+                content = "Tramita recepta"
+                icon = "exchange"
+                primary = {true}
+              />
+            </Form>
+
+            <h1></h1>
     
             <Form error={!!this.state.errorMessageDos}>
               <Message error header="ERROR" content={this.state.errorMessageDos} />
@@ -168,17 +203,37 @@ class IndexFarmacia extends Component {
     
               <Message error header="ERROR" content={this.state.errorMessage} />
               <Button
-                    primary loading={this.state.loading}
-                    content = "Visualitza recepta"
-                    icon = "send"
-                    primary = {true}
-                />
+                primary loading={this.state.loading}
+                content = "Visualitza recepta"
+                icon = "send"
+                primary = {true}
+              />
             </Form>
     
     
             <h1></h1>
             
             <h3>Gestiona receptes</h3>
+
+            <Form onSubmit={this.onTramita} error={!!this.state.errorMessage}>
+              <Form.Field>
+                <label>Id de la recepta</label>
+                <Input
+                  value={this.state.idTramita}
+                  onChange={event => this.setState({ idTramita: event.target.value })}
+                />
+              </Form.Field>
+    
+              <Message error header="ERROR" content={this.state.errorMessage} />
+              <Button
+                primary loading={this.state.loading}
+                content = "Tramita recepta"
+                icon = "exchange"
+                primary = {true}
+              />
+            </Form>
+
+            <h1></h1>
     
             <Form error={!!this.state.errorMessageDos}>
               <Message error header="ERROR" content={this.state.errorMessageDos} />

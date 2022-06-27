@@ -139,6 +139,24 @@
 		{
 			"inputs": [
 				{
+					"internalType": "uint256",
+					"name": "_idRecepta",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_adFarmacia",
+					"type": "address"
+				}
+			],
+			"name": "canviaEstatRecepta",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
 					"internalType": "address",
 					"name": "_addressUsuari",
 					"type": "address"
@@ -654,7 +672,7 @@
 					"type": "string"
 				}
 			],
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
 			"type": "function"
 		}
 	]

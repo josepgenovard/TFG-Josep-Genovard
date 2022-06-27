@@ -154,19 +154,38 @@ contract Recepta is Ownable, ERC721 {
     }
 
     // Funció perque la farmacia propietari visualitzi la informacio de la recepta. Automaticament es canviarà l'estat a "Tramitada" o "Rebutjada" depenent de la data de caducitat
-    function visualitzaRecepta(uint _idRecepta, address _adFarmacia) public onlyByContractes(msg.sender) 
+    function visualitzaRecepta(uint _idRecepta, address _adFarmacia) public view onlyByContractes(msg.sender) 
     returns(string memory valida, string memory nomUsuari, string memory nomMetge, string memory medicament, string memory ium){
+        
+        require(ownerOf(_idRecepta) == _adFarmacia,  "No propietaria");
+        
+        DadesRecepta memory rec = dadesReceptaMap[_idRecepta];
+        
+        if (dadesReceptaMap[_idRecepta].estat == estatRecepta.pendent) {
+
+            return ("Pendent", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
+
+        } else if (dadesReceptaMap[_idRecepta].estat == estatRecepta.tramitada) {
+
+            return ("Valida", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
+
+        } else if (dadesReceptaMap[_idRecepta].estat == estatRecepta.rebutjada) {
+
+            return ("Rebutjada", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
+
+        }
+        
+    }
+
+    // Funció perque la farmacia propietari visualitzi la informacio de la recepta. Automaticament es canviarà l'estat a "Tramitada" o "Rebutjada" depenent de la data de caducitat
+    function canviaEstatRecepta(uint _idRecepta, address _adFarmacia) public onlyByContractes(msg.sender) {
         
         require(ownerOf(_idRecepta) == _adFarmacia,  "No propietaria");
         require(dadesReceptaMap[_idRecepta].estat == estatRecepta.pendent, "Nomes receptes amb estat \"Pendent\"");
 
-        DadesRecepta memory rec = dadesReceptaMap[_idRecepta];
-        
         if (block.timestamp < dadesReceptaMap[_idRecepta].caducitat) {
 
             dadesReceptaMap[_idRecepta].estat = estatRecepta.tramitada;
-
-            return ("Valida", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
 
         } else {
 
@@ -176,8 +195,6 @@ contract Recepta is Ownable, ERC721 {
             uint posicioRecepta = PosicioArrayaMap[_idRecepta];
             delete receptesPropietariMap[_adFarmacia].ids[posicioRecepta];
             
-            return ("Caducada", mi.nomUsuari(rec.idUsuari), hos.nomMetge(rec.idMetge), rec.medicament, rec.ium);
-
         }
         
     }

@@ -22,6 +22,19 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idRecepta",
+						"type": "uint256"
+					}
+				],
+				"name": "canviaEstatRecepta",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "enviaReceptesAlMinisteri",
 				"outputs": [],
@@ -64,7 +77,7 @@
 						"type": "string"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -199,38 +212,38 @@
 			]
 		},
 		"contracts/Farmacies.sol": {
-			"keccak256": "0x65d0b420e78891669a00ea8bb7e9959b3ce27faaee189c156bd807bb15424f1d",
+			"keccak256": "0x89f67a8f4f1b2162378a34599db11a0f028169e1c0528397d1779c3ea47f2f44",
 			"urls": [
-				"bzz-raw://92578b134eedeb031f31a88a1afbd9ecff17c6e64d6b86346d44251a7cd08996",
-				"dweb:/ipfs/QmXNmn13gYUKNZD3y18yBKXZvLGmpjLFK8E2HMZdgSjqi2"
+				"bzz-raw://ee6c9174aeece61ab9de166295f3e19b65ac558a3afffa5c75170747116240ad",
+				"dweb:/ipfs/QmbTqRGSSGYdTVC6bVU2k5BdnGpBcSzPei8fXPAhMpjstB"
 			]
 		},
 		"contracts/Hospitals.sol": {
-			"keccak256": "0x8ea4206043f9ba7d12ea0825c5057f61da99878f2dbc7d7c093389957e726dfa",
+			"keccak256": "0x2729fef29c5398bc8b3167b2748367afcf8d8254ffdf760ab21fc056db186fdc",
 			"urls": [
-				"bzz-raw://8707f3d5c8d0bbd4e1bcbe76d50d9736dc208b7143edba651b1738a8c1338806",
-				"dweb:/ipfs/QmSkzqZiiF1TNb6Sck9BZF9v9idenkk8kDms3EGzovLZys"
+				"bzz-raw://6ac3d963ce05efab241bcc47760e1a06c28ea04d6a652ffcac8549d3dbd92b55",
+				"dweb:/ipfs/QmVBMT1vEioBNuP11LEz51pkQpPzdU7YodaFhnWCSJL6JB"
 			]
 		},
 		"contracts/Metges.sol": {
-			"keccak256": "0xb1b29cb59b486f2062141dbc6817a2ed6dfc75a3425fbcd1bea01f18ef240f46",
+			"keccak256": "0x40a5bb0133a9981b3912c3f82d53b70a4fdd4391d1f02a62be64ea5d17a1e846",
 			"urls": [
-				"bzz-raw://9546e542a00551cba6afd16964be7543821398b71af11cb50c7c169cce5efe30",
-				"dweb:/ipfs/QmUxLe7xVJtkziSeQnAhizWoELABGxhEBuKqGvjoi3nCtT"
+				"bzz-raw://e52ba8fbc0c9c173bc8d449a280f5dd5a209959c7ad76f8f898730012f3c0b1a",
+				"dweb:/ipfs/QmWHDHQqtMUmtxzQ7fV5udjrzknZJtBbTUWZyfu33rnWoe"
 			]
 		},
 		"contracts/Ministeri.sol": {
-			"keccak256": "0x67cc46d8a2d235225c9432e71676e0c92e3b134b840e22756189bf3c710711a5",
+			"keccak256": "0x82f5e99b8a26ca32ad271b64c0f6a362c6667ec84989ebe833902627566c221f",
 			"urls": [
-				"bzz-raw://8666b2dfc75f48b7b29a6ab22638e32fee8758d7549934507e7b196dbcfe5873",
-				"dweb:/ipfs/QmcnUmmhFrh645b4KCu8Ubs5xmvHLSoqhJU4PkgQBsaEBk"
+				"bzz-raw://7a478b0531d8661f5ad8f26b3128a8925192e35206403c1544285d59b9d317ab",
+				"dweb:/ipfs/QmYjcXtTRsrmwMU2UryA4f5aqwqSVGFPQdvM32TFwzYk4u"
 			]
 		},
 		"contracts/TokenRecepta.sol": {
-			"keccak256": "0x2c8e013120fbccb7c91773ed42ff9d52a9a74b07f18ea0d5686d87b6c5cf4466",
+			"keccak256": "0x36ca82ccf5deef72956ec5f8558d8337db81d9165f98f8540d02fd1ca13e4c17",
 			"urls": [
-				"bzz-raw://080eef929b5d28f2191c4cca6665a4afb2d22c4533c0c3de60b4b81ea5701e4c",
-				"dweb:/ipfs/QmRLSBVxohkFcjXt4t7RvbH3JSMo2Jokhap31sCSjCRkXw"
+				"bzz-raw://d9247d4d7c08eeb9588a96fff3e0650b3600989a5a521ac8fad1ee5dd25d497a",
+				"dweb:/ipfs/QmaKRvkSkj6MkhitFJ3izeH7sfBqw6nP9yG2YawE1BLZe1"
 			]
 		},
 		"contracts/Usuaris.sol": {

@@ -144,6 +144,24 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "_idRecepta",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_adFarmacia",
+						"type": "address"
+					}
+				],
+				"name": "canviaEstatRecepta",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "_addressUsuari",
 						"type": "address"
@@ -659,7 +677,7 @@
 						"type": "string"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -843,10 +861,10 @@
 			]
 		},
 		"contracts/Farmacies.sol": {
-			"keccak256": "0x65d0b420e78891669a00ea8bb7e9959b3ce27faaee189c156bd807bb15424f1d",
+			"keccak256": "0x89f67a8f4f1b2162378a34599db11a0f028169e1c0528397d1779c3ea47f2f44",
 			"urls": [
-				"bzz-raw://92578b134eedeb031f31a88a1afbd9ecff17c6e64d6b86346d44251a7cd08996",
-				"dweb:/ipfs/QmXNmn13gYUKNZD3y18yBKXZvLGmpjLFK8E2HMZdgSjqi2"
+				"bzz-raw://ee6c9174aeece61ab9de166295f3e19b65ac558a3afffa5c75170747116240ad",
+				"dweb:/ipfs/QmbTqRGSSGYdTVC6bVU2k5BdnGpBcSzPei8fXPAhMpjstB"
 			]
 		},
 		"contracts/Hospitals.sol": {
@@ -871,10 +889,10 @@
 			]
 		},
 		"contracts/TokenRecepta.sol": {
-			"keccak256": "0x2312898ac3312e4ee119638c04ea1132b694dc5336b894f3be20ca281d5a5d36",
+			"keccak256": "0x36ca82ccf5deef72956ec5f8558d8337db81d9165f98f8540d02fd1ca13e4c17",
 			"urls": [
-				"bzz-raw://641f0ea76812ed5e74fbf51836a05b3b5c1440a7e23a850c40c0a82d372a766d",
-				"dweb:/ipfs/QmUxneMGrspabzFSu1aHp8fo7349DcRKEc7cx2MbSEMTV9"
+				"bzz-raw://d9247d4d7c08eeb9588a96fff3e0650b3600989a5a521ac8fad1ee5dd25d497a",
+				"dweb:/ipfs/QmaKRvkSkj6MkhitFJ3izeH7sfBqw6nP9yG2YawE1BLZe1"
 			]
 		},
 		"contracts/Usuaris.sol": {
