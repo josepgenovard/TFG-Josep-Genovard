@@ -95,7 +95,7 @@ class VisualitzaReceptes extends Component {
         return (
             <div>
                 <h1></h1>
-                <Link to='/'>Torna enrera</Link>
+                <Link to='/'>Torna enrere</Link>
                 <h3><Icon name='list' circular />&nbsp;Receptes en propietat</h3>
                 <Table fixed>
                     <Table.Header>

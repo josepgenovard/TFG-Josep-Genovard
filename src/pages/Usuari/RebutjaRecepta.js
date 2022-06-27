@@ -40,7 +40,7 @@ class RebutjaRecepta extends Component {
     return (
       <div>
         <h1></h1>
-        <Link to='/'>Torna enrera</Link>
+        <Link to='/'>Torna enrere</Link>
         <h3><Icon name='remove' circular />&nbsp;Rebutja recepta</h3>
 
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
