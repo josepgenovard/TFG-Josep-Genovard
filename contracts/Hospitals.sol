@@ -36,7 +36,6 @@ contract Hospitals {
     // Estructura de la plantilla de cada hospital
         struct Plantilla
     {
-        uint nombreDeMetgesPlantilla;
         address[] plantilla;
     }
     
@@ -82,16 +81,12 @@ contract Hospitals {
 
         require(bytes(_nom).length > 8, "Indicar nom");
 
-        require(numDigits(_numColegiat) == 9, "Num col.legiat es de 9 xifres");
-
         Metge memory m;
         m.estat = estatActor.alta;
         m.nom = _nom;
         m.numColegiat = _numColegiat;
         m.aHospital = msg.sender;
         MetgesMap[_aMetge] = m;
-
-        PlantillaMap[msg.sender].nombreDeMetgesPlantilla ++;
 
         PosicioArrayaMap[_aMetge] = PlantillaMap[msg.sender].plantilla.length; // Guardar posició de l'array en la que es guardarà el metge
         PlantillaMap[msg.sender].plantilla.push(_aMetge);
@@ -104,8 +99,6 @@ contract Hospitals {
         require(msg.sender == MetgesMap[_aMetge].aHospital, "Nomes hospital propietari");
 
         MetgesMap[_aMetge].estat = estatActor.baixa;
-
-        PlantillaMap[msg.sender].nombreDeMetgesPlantilla --;
 
         // S'elimina el metge de la plantilla de l'hospital
         uint posicioMetge = PosicioArrayaMap[_aMetge];
@@ -162,16 +155,5 @@ contract Hospitals {
     }
 
     
-
-    ///// FUNCIONS D'AJUDA //////
-    
-    function numDigits(uint number) private pure returns (uint8) {
-        uint8 digits = 0;
-        while (number != 0) {
-            number /= 10;
-            digits++;
-        }
-        return digits;
-    }
     
 }

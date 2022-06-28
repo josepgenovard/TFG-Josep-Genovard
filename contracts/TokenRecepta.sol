@@ -143,7 +143,7 @@ contract Recepta is Ownable, ERC721 {
         // Canviam estat
         dadesReceptaMap[_idRecepta].estat = estatRecepta.pendent;
 
-        // S'elimina la recepta d el'historial de l'usuari
+        // S'elimina la recepta de l'historial de l'usuari
         ///// S'elimina de l'usuari
         uint posicioRecepta = PosicioArrayaMap[_idRecepta];
         delete receptesPropietariMap[_adUsuari].ids[posicioRecepta];
@@ -190,10 +190,6 @@ contract Recepta is Ownable, ERC721 {
         } else {
 
             dadesReceptaMap[_idRecepta].estat = estatRecepta.rebutjada;
-
-            // S'elimina la recepta de l'historial de la farmàcia
-            uint posicioRecepta = PosicioArrayaMap[_idRecepta];
-            delete receptesPropietariMap[_adFarmacia].ids[posicioRecepta];
             
         }
         

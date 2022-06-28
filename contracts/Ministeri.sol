@@ -94,7 +94,7 @@ contract Ministeri {
     {
         require(
             (_account == aTokenRecepta) || (_account == aUsuaris) || (_account == aHospitals) || (_account == aFarmacies),             
-            "Nomes SC desplagats"
+            "Nomes SC desplegats"
         );
         _;
     }
@@ -107,17 +107,15 @@ contract Ministeri {
     // Funció per iniciar tots els contractes amb una sola funció
     function desplegaTotsElsSC() public onlyByMinisteri(msg.sender) returns (address hospital, address farmacies, address usuaris, address metges){
         
-        require(!contractesDesplegats, "Nomes es poden desplagar una vegada els contractes");
+        require(!contractesDesplegats, "Nomes es poden desplegar una vegada els contractes");
         
         // Hospitals
         aHospitals = address(new Hospitals(ContracteEntitat));
         hos = Hospitals(aHospitals);
 
         // TokenRecepta
-        ///////aTokenRecepta = address(new Recepta(Owner, ContracteEntitat, aHospitals));
-        ///////tr = Recepta(aTokenRecepta);
-        //Informar al contracte Hospitals de l'adreça que té
         tr.rebAddressContractesMinisteriHospital(ContracteEntitat, aHospitals);
+        //Informar al contracte Hospitals de l'adreça que té
         hos.rebAddressContracteTokenRecepta(aTokenRecepta);
 
         // Metges
