@@ -3,7 +3,7 @@ const MinisteriABI = require('./build/MinisteriABI.json');
 
 const instance = new web3.eth.Contract(
     MinisteriABI.abi,
-    '0xBE8B35d779db38d107B82abb7423Bf40893Ef84A'
+    '0x43a2A4D37BF5C22E46499355D1d479597738539d'
 );
 
 console.log(instance);

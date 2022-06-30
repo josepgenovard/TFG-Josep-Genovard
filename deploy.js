@@ -20,7 +20,6 @@ async function main() {
     },
   });
   const ministeri = await Ministeri.deploy(recepta.address);
-  //const ministeri = await Ministeri.deploy('0x3A1dee4Ca5184636F772c72921C937AAb2b3c447');
 
 
   console.log("Desplegant Ministeri a l'adreça:", ministeri.address);
