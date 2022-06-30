@@ -12,7 +12,7 @@ const ReceptaFactory = require('../src/ethereum/build/ReceptaABI.json');
 
 describe("Funcions", function() {
 
-  let tokenSC, ministeriSC, hospitalSC, metgeSC, usuariSC, farmaciaSC;
+  let tokenSC, ministeriSC, hospitalSC, metgeSC, usuariSC, farmaciaSC, dateTimeSC;
   const ministeri = 0x5735cff62509A9bab97DF7c4c51D495564170639;
   let hospital, hospital2, metge, farmacia, usuari;
   let user1SCaddr, user2SCaddr;
@@ -21,6 +21,14 @@ describe("Funcions", function() {
   let pubKey1New;
   let pubKey2;
 
+  it("Desplega DateTime", async function () {
+    const DateTime = await ethers.getContractFactory('DateTime');
+    dateTimeSC = await DateTime.deploy();
+    await dateTimeSC.deployed(); 
+
+    expect(dateTimeSC.address).to.not.be.undefined;
+  });
+  
   it("Address asignment", async function(){
     [hospital, hospital2, metge, farmacia, usuari] = await ethers.getSigners();
   })
@@ -28,7 +36,7 @@ describe("Funcions", function() {
   it("Desplega TokenRecepta smart contract", async function () {
     const TokenRecepta = await ethers.getContractFactory('Recepta', {
       libraries: {
-        DateTime: "0x92482Ba45A4D2186DafB486b322C6d0B88410FE7",
+        DateTime: dateTimeSC.address,
       },
     });
     tokenSC = await TokenRecepta.deploy();
@@ -67,7 +75,7 @@ describe("Funcions", function() {
     // Farmàcia
     const farmaciessAddress = await ministeriSC.getAFarmacies();
     const Farmacia = await ethers.getContractFactory('Farmacies');
-    farmiacaSC = Farmacia.attach(farmaciessAddress);
+    farmaciaSC = Farmacia.attach(farmaciessAddress);
 
 
     expect(adressHospital || addressFarmacia || adressUsuari || addressMetge).to.not.be.undefined;
@@ -124,7 +132,7 @@ describe("Funcions", function() {
     await metgeSC.connect(metge).creaRecepta(usuari.address, nomMedicament, ium, any, mes, dia);    
   })  
 
-  /*it("Rebutja recepta", async function (){
+  it("Rebutja recepta", async function (){
     const id = 1;
 
     await usuariSC.connect(usuari).rebutjaRecepta(id);
@@ -143,7 +151,7 @@ describe("Funcions", function() {
     })
   }
 
-  for (let i = 2; i < 4; i++) { // Vuit receptes no caducades
+  for (let i = 4; i < 12; i++) { // Vuit receptes no caducades
     it("Nova recepta", async function (){
       const nomMedicament = 'Ibuprofeno 600 g';
       const ium = '1234567890123';
@@ -158,11 +166,12 @@ describe("Funcions", function() {
   for (let i = 2; i < 12; i++){ // S'envien les 10 receptes no rebutjades
     it("Envia recepta a farmacia", async function (){
       
+      await tokenSC.connect(usuari).approve(usuariSC.address, i);
       await usuariSC.connect(usuari).enviaReceptaAFarmacia(i, farmacia.address);
       
     })
   }
-
+  
   for (let i = 2; i < 12; i++){ // Es tramiten les 10 receptes
     it("Tramita recepta", async function (){
       
@@ -172,9 +181,10 @@ describe("Funcions", function() {
   }
 
   it("Envia receptes al Ministeri", async function (){
-      
+    
+    await tokenSC.connect(farmacia).setApprovalForAll(farmaciaSC.address, true);
     await farmaciaSC.connect(farmacia).enviaReceptesAlMinisteri();
     
-  })*/
+  })
   
 })
